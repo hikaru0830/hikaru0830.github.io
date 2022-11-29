@@ -1,0 +1,90 @@
+
+
+
+.all{
+    width: 1500px;
+}
+
+.front{
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.front h1{
+    font-size: 40px;
+    font-family: Vidaloka;
+    letter-spacing: 3px;
+}
+
+.front h1 span{
+    color: #a8966c;
+}
+
+.front p{
+    width: 700px;
+    margin: auto;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    font-family: 'Space Grotesk';
+}
+
+.pic{
+    margin: auto;
+    display: flex;
+}
+
+.colunm{
+    display: flex;
+    width: 600px;
+    margin: 70px 0px 70px 0px
+}
+
+.description{
+    height: 100px;
+    width: 300px;
+}
+
+.descriptionL{
+    text-align: right;
+    margin-left: 120px;
+    margin-right: 10px;
+}
+
+.descriptionR{
+    text-align: left;
+    margin-left: 10px;
+}
+
+.description h5{
+    font-size: 15px;
+    color: #a8966c;
+    height: 20px;
+    margin: 0px;
+    font-family: Vidaloka;
+    letter-spacing: 2px;
+}
+
+.description p{
+    height: 50px;
+    margin: 0px;
+    font-family: 'Space Grotesk';
+}
+
+.icon{
+    width: 70px;
+}
+
+.iconL{
+    margin-right: 100px;
+}
+
+.iconR{
+    margin-left: 100px;
+}
+
+.phone{
+    display: flex;
+}
+
