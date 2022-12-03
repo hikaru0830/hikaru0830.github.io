@@ -1,58 +1,706 @@
+/* #region==========全========== */
+
 * {
-    margin: 0;
-    padding: 0;
-    border: 1px solid black;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    /* outline: 1px solid; */
 }
-.web {
+
+
+.web-page {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+header,
+.partner,
+.apply-title {
+    width: 100%;
+}
+
+.advantage,
+.experience,
+.form {
     width: 960px;
+    margin: auto;
 }
-/* ==========導覽列========== */
+
+button {
+    width: 200px;
+    height: 40px;
+    border-style: none;
+    border-radius: 50px;
+    background-color: #00C300;
+
+    font-size: 18px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+button:hover {
+    background-color: #12e612;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+label {
+    color: #2C323F;
+}
+
+
+/* #endregion==========全========== */
+
+/* #region ==========導覽列========== */
 nav {
     width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 10px 5px -8px rgba(0, 0, 0, 0.2);
+    position: fixed;
     display: flex;
-}
-nav .logo {
-    width: 100px;
+    align-items: center;
+
+
+    height: 10vh;
+
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+
 }
 
-nav .menu {
-    font-size: 25px;
+.nav-area {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 40px;
 }
 
-nav .button {
-    
+.nav-left {
+    width: 830px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
 }
 
-/* ==========主圖========== */
+.nav-left a {
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.nav-left a img {
+    width: 141px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.nav-right button {
+    width: 144px;
+}
+
+/* #endregion ==========導覽列========== */
+
+/* #region==========主圖區========== */
 .wall-papper {
     width: 100%;
-    height: 450px;
+    height: 90vh;
     background-image: url(img/wallpapper.jpg);
-    background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
+    position: relative;
+
+    margin-top: 10vh;
 }
 
-/* ==========說明========== */
-.intro {
+.main-pic {
+    width: 900px;
+    height: 90vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.wall-papper-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    width: 500px;
+    height: 320px;
+}
+
+.wall-papper-content div {
+    width: 100%;
+}
+
+.wall-papper-content img {
+    width: 100%;
+}
+
+.wall-papper-content .slogan {
+    color: #2C323F;
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 50px;
+}
+
+.wall-papper-content div:last-child {
+    width: 225px;
     text-align: center;
 }
-.intro p:first-child {
-    font-size: 20px;
-}
-.intro p:nth-child(2){
-    font-size: 25px;
+
+.wall-papper-content button {
+    width: 225px;
+    height: 60px;
+    font-size: 23px;
+    font-weight: 900;
 }
 
-/* ==========圖片介紹區========== */
-.pic {
+.wall-papper-content p {
+    color: #00C300;
+    font-weight: bolder;
+    margin-top: 5px;
+}
+
+#green-1 {
+    /* width: 200px; */
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+
+#green-2 {
+    /* width: 290px; */
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+}
+
+/* #endregion==========主圖區========== */
+
+/*#region ========== 市場調查 ========== */
+
+.promote.advantage {
+    padding: 60px 0px;
+}
+
+.imarket-survey {
     width: 100%;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 100px;
+}
+
+.imarket-survey p {
+    width: 100%;
+}
+
+.imarket-survey p:first-child {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.imarket-survey p:nth-child(2) {
+    font-size: 35px;
+}
+
+.imarket-survey p:last-child {
+    font-size: 14px;
+    margin-top: 15px;
+    color: #717C8F;
+}
+
+.imarket-survey p span {
+    color: #00C300;
+}
+
+/*#endregion ========== 市場調查 ==========*/
+
+/*#region ==========圖片介紹區========== */
+.advantage-item-box {
+    width: 960px;
+    margin: auto;
+}
+
+.advantage-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* .item-box>* {
+    width: 440px;
+} */
+.advantage-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.advantage-item .advantage-img {
+    width: 470px;
+}
+
+.advantage-item .advantage-text {
+    width: 470px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.advantage-item img {
+    width: 100%;
+}
+
+.advantage-text h2 {
+    color: #00C300;
+    font-size: 35px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.advantage-text p {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 30px;
+
+}
+
+.advantage-text .note {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #717C8F;
+}
+
+/*#endregion ==========圖片介紹區========== */
+
+/*#region ========== 最佳夥伴 ========== */
+
+.promote.partner {
+    background-color: #F5F6F9;
+    padding: 70px 0px;
+}
+
+.partner-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.partner-box {
+    width: 960px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.partner-item {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
-}
-.pic .item {
-    width: 350px;
-    height: 350px;
+
+    width: 240px;
 }
 
+.partner h2 {
+    font-size: 35px;
+}
+
+.partner-img {
+    width: 150px;
+}
+
+.partner-text {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+
+/* .promote.experience {
+    margin-bottom: 50px;
+} */
+
+
+
+
+
+.promote-item {
+    width: 250px;
+    height: 300px;
+    font-weight: 900;
+    ;
+    text-align: center;
+    margin: 0px 35px 0px 35px;
+}
+
+.promote-item img {
+    width: 150px;
+}
+
+.promote-item2 img {
+    width: 294px;
+    margin: 0px 10px 0px 10px;
+    border: 1px solid #DEDEDE;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.promote-item h4 {
+    font-size: 20px;
+    margin: 5px;
+}
+
+/*#endregion ========== 最佳夥伴 ========== */
+
+/*#region ========== 用戶體驗 ========== */
+
+.promote.experience {
+    padding: 100px 0;
+}
+
+.experience-box {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.experience-title h2 {
+    width: 960px;
+    height: 100px;
+    font-size: 35px;
+    text-align: center;
+}
+
+.experience-item {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    width: 240px;
+    border: 1px solid #DDDEDE;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.experience-text-title h3 {
+    font-size: 23px;
+}
+
+.experience-item div:nth-child(n+2) {
+    margin-top: 10px;
+}
+
+.experience-img {
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+
+.experience-img:first-child img {
+    transform: rotateY(-180deg);
+}
+
+.experience-img:last-child img {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 30px;
+}
+
+
+
+/*#endregion ========== 用戶體驗 ========== */
+
+/*#region ==========馬上申請========== */
+.apply {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+
+}
+
+.apply-title {
+    background-color: #F5F6F9;
+    padding: 50px 0px;
+}
+
+.apply-area {
+    width: 960px;
+    height: 230px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.apply-title h2 {
+    font-size: 35px;
+    width: 100%;
+}
+
+.apply-title p {
+    color: #00c300;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+/* ==========表格========== */
+
+.form-top {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.form-bottom {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.form-top h3 {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.form-column {
+    width: 400px;
+    text-align: left;
+}
+
+.form-item:nth-child(n+2) {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-item p {
+    color: #717C8F;
+    font-weight: 400;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.form input {
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #B7BCD6;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.form select {
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #B7BCD6;
+}
+
+.form-button {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.notice-text {
+    text-align: left;
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.notice p {
+    color: #000;
+}
+
+/*#endregion ==========馬上申請========== */
+
+/*#region ==========footer========== */
+footer {
+    width: 100%;
+    background-color: #2C323F;
+    padding-top: 25px;
+}
+
+.footer-area {
+    width: 1200px;
+    margin: auto;
+}
+
+.footer-top,
+.footer-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    color: #ffffff;
+    font-size: 900;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(225, 225, 225, 0.6);
+    padding-bottom: 50px;
+    padding-top: 15px;
+}
+
+.footer-top-left {
+    display: flex;
+}
+
+.footer-top-right {
+    width: 250px;
+    height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.footer-bottom-left {
+    width: 470px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.footer-bottom-right {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-list-title {
+    font-size: 16px;
+}
+
+.footer-column {
+    height: 180px;
+    margin-right: 60px;
+    line-height: 32px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #fff;
+    opacity: 60%;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.follow {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.sns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.sns a {
+    color: #fff;
+    font-size: 30px;
+    opacity: 60%;
+}
+
+.powered {
+    width: 100%;
+}
+
+.powered p {
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.powered a {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+
+.footer-bottom-left p,
+.footer-bottom-left a {
+    color: #fff;
+    opacity: 60%;
+    font-size: 15px;
+}
+
+.footer-column a:hover,
+.footer-bottom-left a:hover,
+.sns a:hover {
+    opacity: 90%;
+}
+
+.footer-bottom-right select {
+    width: 150px;
+    height: 20px;
+    background-color: #2C323F;
+    border-style: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+/* .footer-top div:first-child {
+    display: flex;
+} */
+
+/* .footer-top div:last-child {
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+} */
+
+/* .mark {
+    position: relative;
+}
+
+.mark::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 70%;
+    left: 0;
+    bottom: -5px;
+    background-color: #ff000050;
+    z-index: 1;
+} */
+
+/* .has-write::after {
+    content: ' *';
+} */
+
+/*#endregion ==========footer========== */
