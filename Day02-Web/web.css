@@ -505,20 +505,14 @@ label {
     font-size: 14px;
 }
 
-.form input {
+.form input,
+.form select {
     width: 400px;
     height: 40px;
     border-radius: 5px;
     border: 1px solid #B7BCD6;
     padding-left: 10px;
     margin-top: 10px;
-}
-
-.form select {
-    width: 400px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #B7BCD6;
 }
 
 .form-button {
@@ -669,7 +663,11 @@ footer {
     border-style: none;
     color: #ffffff;
     font-size: 16px;
-    font-weight: 900;
+    font-weight: 400;
+}
+
+.globe {
+    margin-right: 5px;
 }
 
 /* .footer-top div:first-child {
