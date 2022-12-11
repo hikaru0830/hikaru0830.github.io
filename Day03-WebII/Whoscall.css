@@ -1,0 +1,389 @@
+/* #region ===== 全域 =====*/
+
+body {
+    margin-top: 10vh;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+}
+
+header,.partner,.apply-title,footer{
+    width: 100%;
+}
+
+.advantage,.share,.apply-form {
+    width: 960px;
+    margin: auto;
+}
+
+.partner,.apply-title,.share,form {
+    padding: 70px 0;
+}
+
+header {
+    position: relative;
+}
+
+h2 {
+    font-size: 35px;
+    color: #2C323F;
+}
+
+h3,a,p,label {
+    text-decoration: none;
+    color: #2C323F;
+}
+
+.note.small {
+    font-size: 15px;
+    color: #7A7E9B;
+    font-weight: 500;
+}
+
+.btn {
+    width: 150px;
+    height: 40px;
+    background-color: #00C300;
+    border-radius: 100px;
+    border-style: none;
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+}
+.btn:hover {
+    background-color: #12ec12;
+}
+
+/* #endregion ===== 全域 =====*/
+
+/* #region ===== 導覽列 =====*/
+
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: #fff;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.3);
+    
+}
+
+.main-menu {
+    display: flex;
+    width: 57%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-menu a {
+    font-weight: 500;
+}
+.main-menu a:hover {
+    color: #00C300;
+}
+
+.main-menu img {
+    width: 140px;
+}
+
+
+/* #endregion ===== 導覽列 =====*/
+
+/* #region ===== 主視覺 =====*/
+
+.main-kv {
+    width: 100%;
+    height: 90vh;
+    margin-top: 10vh;
+    background-image: url(img/wallpapper.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.kv-content {
+    width: 50%;
+    margin: auto;
+    height: 100%;
+}
+
+/* #endregion ===== 主視覺 =====*/
+
+/* #region ===== 市場調查 =====*/
+.promote.advantage {
+    padding: 70px 0;
+}
+.advantage-intro {
+    padding-top: 100px;
+}
+.advantage-title {
+    text-align: center;
+    line-height: 55px;
+}
+
+.advantage-title p:first-child {
+    font-size: 25px;
+}
+.advantage-title p:nth-child(2) {
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.advantage-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.advantage-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.advantage-item-text {
+    width: 420px;
+}
+.advantage-item-text h2{
+    color: #00C300;
+    margin-bottom: 50px;
+}
+.advantage-item-text p {
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.advantage-item-text .note {
+    margin-top: 30px;
+}
+
+.advantage-item img {
+    width: 460px;
+}
+
+/* #endregion ===== 市場調查 =====*/
+
+/* #region ===== 最佳夥伴 =====*/
+
+.partner {
+    background-color: #F5F6F9;
+}
+.partner-content {
+    width: 960px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.partner-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.partner-item {
+    width: 260px;
+    text-align: center;
+}
+.partner-item h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.partner-item p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.partner-item img {
+    width: 150px;
+}
+/* #endregion ===== 最佳夥伴 =====*/
+
+/* #region ===== 用戶分享 =====*/
+
+
+.share {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.share-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.share-item {
+    width: 260px;
+    border: 1px solid #D7D7D7;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.share-item h3 {
+    font-size: 25px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.share-item p {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.share-item img:first-child{
+    transform: scaleX(-1);
+}
+.share-item img:last-child {
+    margin-top: auto;
+    margin-left: auto;
+}
+
+/* #endregion ===== 用戶分享 =====*/
+
+/* #region ===== 馬上申請 =====*/
+
+.apply-title {
+    width: 100%;
+    text-align: center;
+    background-color: #F5F6F9;
+}
+.apply-title p {
+    color: #4AC645;
+    margin-top: 40px;
+}
+
+
+/* #endregion ===== 馬上申請 =====*/
+
+/* #region ===== 表格 =====*/
+
+.form-title h3 {
+    font-size: 20px;
+}
+
+
+.form-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 25px;
+}
+
+.input-item {
+    width: 390px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-item label {
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.input-item input {
+    width: 100%;
+    height: 30px;
+}
+
+.input-item .note {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.apply-form button{
+    width: 200px;
+    height: 50px;
+    margin: auto;
+}
+
+.form-notice {
+    color: #000;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 40px;
+}
+
+.apply-form button {
+    display: block;
+    text-align: center;
+    margin-top: 55px;
+}
+
+
+/* #endregion ===== 表格 =====*/
+
+/* #region ===== footer =====*/
+
+footer {
+    background-color: #2C323F;
+    padding: 20px 150px;
+    box-sizing: border-box;
+}
+
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-list {
+    display: flex;
+}
+
+.list-item {
+    margin-right: 80px;
+    font-weight: 400;
+    color: #fff;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.list-title{
+    font-size: 16px;
+}
+
+.list-title li:not(.list-title){
+    opacity: 0.5;
+}
+
+.sns {
+    width: 200px;
+}
+
+.follow div:first-child{
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.icon{
+    display: flex;
+    justify-content: space-between;
+}
+.icon a{
+    font-size: 30px;
+    color: #fff;
+    margin: auto;
+}
+
+.footer-end {
+    border-top:1px solid #fff ;
+}
+
+/* #endregion ===== footer =====*/
+
+
+
+/* #region =====  =====*/
+/* #endregion =====  =====*/
