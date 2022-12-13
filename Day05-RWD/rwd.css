@@ -20,7 +20,7 @@ section {
     margin: 20px 15px;
     display: flex;
     padding: 15px;
-    background-color: bisque;
+    background-color: rgb(242, 237, 228);
     box-sizing: border-box;
 }
 
@@ -30,6 +30,7 @@ section {
 
 img {
     width: 100%;
+    height: 100%;
 }
 
 .item .text {
