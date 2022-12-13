@@ -25,15 +25,15 @@ section {
 }
 
 .item-pic {
-    width: 100%;
+    width: 50%;
 }
 
 img {
     width: 100%;
-    height: 100%;
 }
 
 .item .text {
+    width: 50%;
     margin-left: 15px;
     margin-top: auto;
     margin-bottom: auto;
@@ -46,11 +46,16 @@ h1 {
 @media screen and (min-width: 768px) {
     .item {
         --col: 3;
-        flex-wrap: wrap;
+        display: block;
         justify-content: center;
     }
 
+    .item-pic {
+        width: 100%;
+    }
+
     .item .text {
+        width: 100%;
         text-align: center;
         margin-top: 15px;
         margin-left: 0px;
@@ -59,6 +64,7 @@ h1 {
 }
 @media screen and (min-width: 1200px) {
     .item {
+        display: flex;
         --col: 4;
         position: relative;
         align-items: center;
