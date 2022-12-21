@@ -27,7 +27,7 @@ input {display: none;}
 /* #endregion >>>>>>>>>> 共用 <<<<<<<<<<*/
 
 /* #region >>>>>>>>>> PC <<<<<<<<<<*/
-@media screen and (width > 768px) {
+@media screen and (width >= 768px) {
 
     a { color: #fff; }
     .hb, label { display: none; }
