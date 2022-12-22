@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/4d9c8bb258.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .page {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            width: 80px;
+            height: 80px;
+            margin: auto 20px;
+
+        }
+
+        button {
+            border-style: none;
+            background-color: transparent;
+        }
+
+        i {
+            font-size: 80px;
+            color: rgb(78, 84, 84);
+
+        }
+
+        .main-pic {
+            width: 960px;
+        }
+
+        .main-pic img {
+            width: 100%;
+        }
+
+        .color-choose {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 10px;
+        }
+
+        .gray {
+            background-color: gray;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        /* anc */
+        .btn:hover,
+        .color-choose:hover {
+            translate: -2px -2px;
+        }
+
+        .btn:active,
+        .color-choose:active {
+            translate: 2px 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <div class="btn" id="left"><button><i class="fa-solid fa-arrow-rotate-left"></i></button></div>
+            <div class="main-pic">
+                <img src="./img/gray-1.png" alt="ALTIS Gray">
+            </div>
+            <div class="btn" id="right"><button><i class="fa-solid fa-arrow-rotate-right"></i></button></div>
+            <div class="color-choose gray"></div>
+            <div class="color-choose red"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        let img, i, color;
+        window.onload = function () {
+            let goLeft = document.getElementById("left");
+            let goRight = document.getElementById("right");
+            let red = document.querySelector(".red");
+            let gray = document.querySelector(".gray");
+            img = document.querySelector("img");
+
+
+            i = 1;
+            color = "gray"
+            goLeft.addEventListener("click", plus);
+            goRight.addEventListener("click", minus);
+            red.addEventListener("click", turnIntoRed);
+            gray.addEventListener("click", turnIntoGray);
+        }
+
+        function plus() {
+            if (i == 60) {
+                i = 1;
+            } else {
+                i++;
+            }
+            img.src = `./img/gray-${i}.png`;
+        }
+        function minus() {
+            if (i == 1) {
+                i = 60;
+            } else {
+                i--;
+            }
+            img.src = `./img/${color}-${i}.png`;
+        }
+
+        function turnIntoRed() {
+            color = "red"
+            img.src = `./img/${color}-${i}.png`;
+        }
+        function turnIntoGray() {
+            color = "gray"
+            img.src = `./img/${color}-${i}.png`;
+        }
+    </script>
+</body>
+
+</html>
