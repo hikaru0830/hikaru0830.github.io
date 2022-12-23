@@ -233,8 +233,12 @@
             goRight.addEventListener("click", plus);
             goLeft.addEventListener("mousedown", minusLongPress);
             goLeft.addEventListener("mouseup", clear);
+            goLeft.addEventListener("mouseleave", clear);
+
             goRight.addEventListener("mousedown", plusLongPress);
             goRight.addEventListener("mouseup", clear);
+            goRight.addEventListener("mouseleave", clear);
+
             red.addEventListener("click", turnIntoRed);
             gray.addEventListener("click", turnIntoGray);
         }
