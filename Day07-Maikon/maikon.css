@@ -826,7 +826,6 @@ footer {
     flex-direction: row-reverse;
     margin-left: 50px;
   }
-  .steps-item:nth-of-type(1){}
 
   .steps-describe img { margin-right: 30px; }
 
