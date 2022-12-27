@@ -817,6 +817,10 @@ footer {
     width: 100%;
   }
 
+  .steps-title {
+    margin-bottom: 50px;
+  }
+
   .steps-item {
     display: flex;
     margin-top: 0px;
@@ -974,6 +978,12 @@ footer {
     font-weight: 400;
   }
 
+  .contact-imgbox img {
+    margin-top: 0px;
+  }
+
+
+
   /* #region ========== nav ========== */
   .menu ul li {
     margin: 0 15px;
@@ -987,9 +997,11 @@ footer {
   /* #region ========== step ========== */
 
   .steps-item:nth-of-type(odd) > img {
-    margin-left: 100px;
+    margin-left: 150px;
     margin-right: 0;
   }
+
+  .steps-item:nth-of-type(odd) { margin-left: 0px; }
   .steps-item:nth-of-type(odd) .steps-describe { 
     margin-left: 100px;
     margin-right: auto; }
@@ -1010,7 +1022,7 @@ footer {
   .steps-item:nth-of-type(5){
     align-items: flex-start;
     margin-top: 50px;
-    margin-left: 70px;
+    /* margin-left: 70px; */
   }
 
   .steps-describe img { margin-right: 20px; }
