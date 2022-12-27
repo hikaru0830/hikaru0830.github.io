@@ -653,6 +653,10 @@ footer {
     font-size: 45px;
   }
 
+  .card {
+    height: 300px;
+  }
+
   /* #endregion ========== 全 ========== */
 
   /* #region ========== nav ========== */
@@ -942,6 +946,18 @@ footer {
 }
 
 @media screen and (min-width: 1024px) {
+
+  .card {
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+  }
+  .card img {
+    height: 70px;
+    width: 70px;
+  }
+  .card h3, .card p { width: 100%; }
 
   /* #region ========== nav ========== */
   .menu ul li {
