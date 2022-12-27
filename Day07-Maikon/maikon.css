@@ -850,7 +850,13 @@ footer {
   .projects-title {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
+
+  .btn-box .project-btn {
+    margin-top: 0px;
+  }
+
   .projects-item {
     width: calc((100% - 60px) / 3);
     height: 400px;
