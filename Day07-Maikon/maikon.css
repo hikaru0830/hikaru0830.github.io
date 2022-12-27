@@ -11,6 +11,10 @@ h2 {
   color: #1d273b;
 }
 
+img {
+  vertical-align:bottom;
+}
+
 div[class*="container"] {
   width: calc(100% - 30px);
   padding-left: 15px;
