@@ -959,6 +959,12 @@ footer {
   }
   .card h3, .card p { width: 100%; }
 
+  .hover-title p {
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
   /* #region ========== nav ========== */
   .menu ul li {
     margin: 0 15px;
