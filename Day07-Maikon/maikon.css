@@ -891,6 +891,7 @@ footer {
   form {
     width: 65%;
     padding: 40px;
+    margin-top: 0;
   }
   
   /* #endregion ========== sign-up ========== */
