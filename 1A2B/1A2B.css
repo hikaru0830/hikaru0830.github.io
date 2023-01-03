@@ -43,6 +43,7 @@ h1 {
 .game-control, .guess-box, .input-box {
     display: flex;
 }
+
 .flower {
     flex-grow: 1;
     background-image: url(./img/flower2.png);
