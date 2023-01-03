@@ -45,7 +45,7 @@ h1 {
 }
 .flower {
     flex-grow: 1;
-    background-image: url(./flower2.png);
+    background-image: url(./img/flower2.png);
     background-size: cover;
 }
 .record-box {
