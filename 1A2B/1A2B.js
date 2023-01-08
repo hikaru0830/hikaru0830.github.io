@@ -1,8 +1,7 @@
 
-let answer, answerArr, show, start, reset, submit, input, recordBox,full, again;
+let answer, answerArr, show, start, reset, submit, input, recordBox,full, again, warn;
 let a,b;
 window.onload = function(){
-    answer = createAnswer();
     show = document.querySelector(".show-answer");
     start = document.querySelector(".start");
     reset = document.querySelector(".reset");
@@ -11,23 +10,29 @@ window.onload = function(){
     recordBox = document.querySelector(".record-box");
     again = document.querySelector(".again");
     full = document.querySelector(".full");
+    warn = document.querySelector(".warn");
     start.addEventListener("click", startGame)
-    submit.addEventListener("click", putRecord)
+    submit.addEventListener("click", judgeBug)
     again.addEventListener("click", resetGame);
     reset.addEventListener("click", resetGame)
     show.addEventListener("click", function(){
         alert(answer)
     })
+    input.addEventListener("input", function(){
+        warn.style.opacity = "0";
+    })
 }
 
 function startGame(){
-    // $(document).ready(function(){
-    //     $(".show-answer").hover(function(){
-    //         $(".show-answer").css("background-color","#CADCA1")
-    //     })
-    // })
-    // show.disabled = false;
-    // show.style.backGroundColor = "#CADCA1"
+    input.disabled = false;
+    let block = document.querySelectorAll(".disabled");
+    block.forEach(d => {
+        d.style.pointerEvents = "all";
+        d.style.opacity = "1";
+    })
+    start.style.pointerEvents = "none";
+    start.style.opacity = "0.5";
+    answer = createAnswer();
 }
 function createAnswer(){
     let random;
@@ -40,26 +45,31 @@ function createAnswer(){
     }while(answerArr.length < 4)
     return answerArr.join("");
 }
-
 function judgeAB(){
     a = 0;
     b = 0;
     let inputSplit = input.value.split("")
     let inputArr = inputSplit.map(Number)
     inputArr.forEach( num => {
-        if(answerArr.includes(num)){
+        if(inputArr.indexOf(num) == answerArr.indexOf(num)){
+            a = a + 1;
+        }else if(answerArr.includes(num)){
             b = b + 1;
-            if(inputArr.indexOf(num) == answerArr.indexOf(num)){
-                a = a + 1;
-            }
         }
     })
-    b = b - a;
 }
 function resetGame(){
     recordBox.innerHTML = "";
-    answer = createAnswer();
     full.style.display = "none";
+    input.disabled = true;
+    start.style.pointerEvents = "all";
+    start.style.opacity = "1";
+    let block = document.querySelectorAll(".disabled");
+    block.forEach(d => {
+        d.style.pointerEvents = "none";
+        d.style.opacity = "0.5";
+    })
+
 
 }
 function judgeWin(){
@@ -67,9 +77,8 @@ function judgeWin(){
         full.style.display = "block"
     }
 }
-
 function putRecord (){
-    judgeAB();
+
     let tag = document.createElement("div");
     let text = document.createElement("div");
     let record = document.createElement("div");
@@ -89,4 +98,22 @@ function putRecord (){
     }
     input.value = "";
     let timeout = setTimeout(judgeWin,100)
+}
+function judgeBug(){
+    let inputArr = input.value.split("");
+    let only = inputArr.filter((num, index) => inputArr.indexOf(num) === index)
+    //判斷是否為數字    
+    if(isNaN(Number(input.value))){
+        warn.style.opacity = "1";
+        warn.innerText = "請輸入數字！";
+    //判斷是否重複
+    }else if(only.length < 4){
+        warn.style.opacity = "1";
+        warn.innerText = "請輸入4碼不重複的數字！";
+    }else if (only.length == 4){
+        judgeAB();
+        putRecord ();
+    }
+
+
 }

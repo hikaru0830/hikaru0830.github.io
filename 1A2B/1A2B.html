@@ -30,18 +30,19 @@
         <div class="container">
             <div class="game-control">
                 <button class="control-btn start btn">開始遊戲</button>
-                <button class="control-btn show-answer btn">看答案</button>
-                <button class="control-btn reset btn">重置</button>
+                <button class="control-btn show-answer btn disabled">看答案</button>
+                <button class="control-btn reset btn disabled">重置</button>
                 <div class="flower"></div>
             </div>
             <div class="record-box"></div>
             <div class="guess-box">
                 <div class="input-box">
-                    <label class="guess" for="guess">請輸入數字</label>
-                    <input type="text" id="guess" maxlength="4">
+                    <label class="guess disabled" for="guess">請輸入數字</label>
+                    <input type="text" id="guess" maxlength="4" disabled>
                 </div>
-                <button class="submit btn">猜!</button>
+                <button class="submit btn disabled">猜!</button>
             </div>
+            <span class="warn">warn</span>
         </div>
     </section>
 
