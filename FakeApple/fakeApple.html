@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apppple</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./fakeApple.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+    </style>
+</head>
+
+<body>
+    <h1>Apple</h1>
+    <header>
+        <nav>
+            <div class="iphone">iPhone</div>
+            <div class="ipad">iPad</div>
+            <div class="macBook">Mac</div>
+        </nav>
+    </header>
+    <main>
+        <div class="title">
+            <h2 class="title-text"></h2>
+        </div>
+        <div class="container">
+            <!-- <div class="main-area">
+                <div class="main-picture">
+                    <img src="./img/i14-normal-Purple.jfif" alt="">
+                </div>
+                <div class="total">
+                    <p class="sum"></p>
+                </div>
+            </div>
+            <div class="option-area">
+                <div class="item-box">
+                    <h3>機型。<span>哪一款適合你？</span></h3>
+                    <input class="model-input" type="radio" name="aaa" id="choosetype1">
+                    <label class="item" id="item1" for="choosetype1">
+                        <div class="product-info">
+                            <p class="product-name">iPhone 14 Pro</p>
+                            <p class="product-size">6.1 吋顯示器</p>
+                        </div>
+                        <div class="price">
+                            <p>NT$34,900 起</p>
+                        </div>
+                    </label>
+                    <input class="model-input" type="radio" name="aaa" id="choosetype2">
+                    <label for="choosetype2">
+                        <div class="item" id="item1">
+                            <div class="product-info">
+                                <p class="product-name">iPhone 14 Pro</p>
+                                <p class="product-size">6.1 吋顯示器</p>
+                            </div>
+                            <div class="price">
+                                <p>NT$34,900 起</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <div class="item-box">
+                    <h3>外觀。<span>挑選你喜愛的外觀。</span></h3>
+                    <p class="color-text">顏色 - 深紫色</p>
+                    <div class="color-box">
+                        <input class="color-input" type="radio" name="iphoneColor" id="purple">
+                        <label class="color-dot purple" for="purple"></label>
+                        <input class="color-input" type="radio" name="iphoneColor" id="gold">
+                        <label class="color-dot gold" for="gold"></label>
+                        <input class="color-input" type="radio" name="iphoneColor" id="silver">
+                        <label class="color-dot silver" for="silver"></label>
+                        <input class="color-input" type="radio" name="iphoneColor" id="black">
+                        <label class="color-dot black" for="black"></label>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+    <script src="./fakeApple.js"></script>
+    <script>
+        //#region ===== window onload =====
+        window.onload = function () {
+
+        }
+        //#endregion ===== window onload =====
+
+        //#region ===== 宣告 =====
+
+        let currencyFormat = Intl.NumberFormat('en-US')
+        let title, container, optionArea, mainArea, total, sum, imageBox, image;
+        let iphoneBtn, ipadBtn, macBookBtn;
+        //iPhone
+        let iphoneModel, iphoneColor, iphoneStorage, iphoneBase, iphonePrice;
+        //iPad
+        let ipadColor, ipadStorage, ipadWifi, ipadBase, ipadPrice;
+        //MacBook
+        let macBookChip, macBookColor, macBookBase, macBookModel, macBookPrice;
+
+        //#endregion ===== 宣告 =====
+
+
+        //#region ===== DOM =====
+
+        title = document.querySelector(".title-text")
+        container = document.querySelector(".container")
+        mainArea = document.createElement("div")
+        mainArea.setAttribute("class", "main-area")
+        optionArea = document.createElement("div")
+        optionArea.setAttribute("class", "option-area")
+        imageBox = document.createElement("div")
+        imageBox.setAttribute("class", "main-picture")
+        image = document.createElement("img")
+        total = document.createElement("div")
+        total.setAttribute("class", "total")
+        sum = document.createElement("p")
+        sum.setAttribute("class", "sum")
+        //導覽列按鈕
+        iphoneBtn = document.querySelector(".iphone")
+        ipadBtn = document.querySelector(".ipad")
+        macBookBtn = document.querySelector(".macBook")
+
+        iphoneBtn.addEventListener("click", chooseIPhone);
+        ipadBtn.addEventListener("click", chooseIPad);
+        macBookBtn.addEventListener("click", chooseMacBook);
+
+        //#endregion ===== DOM =====
+
+
+        //#region ===== Function =====
+
+        //iPhone
+        function chooseIPhone() {
+            container.innerHTML = "";
+            optionArea.innerHTML = "";
+            iphoneModel = "normal"
+            iphoneColor = "purple"
+            iphoneStorage = "";
+            image.src = `./img/i14.jfif`
+            sum.innerText = "總價：NT$34,900 起"
+            title.innerText = "購買iPhone 14 Pro"
+
+            imageBox.appendChild(image);
+            total.appendChild(sum)
+            mainArea.appendChild(imageBox)
+            mainArea.appendChild(total)
+            container.appendChild(mainArea);
+            container.appendChild(optionArea);
+
+            createIPhoneModel();
+            createIPhoneColor();
+            createIPhoneStorage();
+        }
+        function createIPhoneModel() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box model-item-box")
+            itemBox.style.pointerEvents = "all";
+            itemBox.style.opacity = "1";
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "機型。<span>哪一款適合你？</span>"
+            itemBox.appendChild(h3)
+            for (let i = 0; i < iphoneModelArr.length; i++) {
+                //input:radio
+                let input = document.createElement("input");
+                input.setAttribute("class", "item-input");
+                input.type = "radio"
+                input.name = "iphoneModel"
+                input.id = `iphoneModel${i}`
+                //label for input
+                let label = document.createElement("label");
+                label.setAttribute("class", "item");
+                label.setAttribute("for", `iphoneModel${i}`);
+                //產品名 + 尺寸
+                let nameDiv = document.createElement("div");
+                nameDiv.setAttribute("class", "product-info");
+                let nameP = document.createElement("p");
+                nameP.setAttribute("class", "product-name")
+                nameP.innerText = iphoneModelArr[i].name;
+                let sizeP = document.createElement("p");
+                sizeP.setAttribute("class", "product-size")
+                sizeP.innerText = `${iphoneModelArr[i].size} 吋顯示器`;
+                nameDiv.appendChild(nameP)
+                nameDiv.appendChild(sizeP)
+                //標價
+                let priceDiv = document.createElement("div");
+                priceDiv.setAttribute("class", "price");
+                let priceP = document.createElement("p");
+                priceP.innerText = `NT$${currencyFormat.format(iphoneModelArr[i].price)} 起`;
+                priceDiv.appendChild(priceP)
+                //appenChild
+                label.appendChild(nameDiv)
+                label.appendChild(priceDiv)
+                itemBox.appendChild(input);
+                itemBox.appendChild(label);
+                //監聽
+                label.addEventListener("click", function () {
+                    image.src = `./img/i14-${iphoneModel}-${iphoneColor}.jfif`
+                    iphoneModel = iphoneModelArr[i].model
+                    checkIPhonePrice()
+                    // iphonePrice = iphoneModelArr[i].price
+                    if (iphoneStorage == "") {
+                        sum.innerText = `總價：NT$${currencyFormat.format(iphonePrice)} 起`
+                    } else if (iphoneStorage != "") {
+                        sum.innerText = `總價：NT$${currencyFormat.format(iphonePrice)}`
+                    }
+
+                    let storageItem = document.querySelectorAll(".storage-item")
+                    for (let s = 0; s < storageItem.length; s++) {
+                        let price = storageItem[s].querySelector(".price");
+                        let p = price.querySelector("p")
+                        if (iphoneModel == "normal") {
+                            p.innerText = `NT$${currencyFormat.format(iphoneStorageArr[s].price)}`
+                        } else if (iphoneModel == "max") {
+                            p.innerText = `NT$${currencyFormat.format(iphoneStorageArr[s].price + 4000)}`;
+                        }
+                    }
+
+                    let colorItemBox = document.querySelector(".color-item-box")
+                    colorItemBox.style.pointerEvents = "all";
+                    colorItemBox.style.opacity = "1";
+                    // colorItemBox.style.
+                    // let storageItemBox = document.querySelector(".storage-item-box")
+                    // optionArea.removeChild(storageItemBox)
+                    // createIPhoneStorage()
+                    // sum.innerText = `總價：NT$${currencyFormat.format(iphonePrice)} 起`
+                })
+            }
+
+            optionArea.appendChild(itemBox)
+        }
+        function createIPhoneColor() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box color-item-box")
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "外觀。<span>挑選你喜愛的外觀。</span>"
+            let colorText = document.createElement("p")
+            colorText.setAttribute("class", "color-text")
+            colorText.innerText = "顏色 - 深紫色"
+            let colorBox = document.createElement("div")
+            colorBox.setAttribute("class", "color-box")
+
+            iphoneColorArr.forEach(color => {
+                //input
+                let input = document.createElement("input")
+                input.setAttribute("class", "color-input")
+                input.type = "radio"
+                input.name = "iphoneColor"
+                input.id = color.id
+                //label 顏色圈圈
+                let label = document.createElement("label")
+                label.setAttribute("class", `color-dot ${color.id}`)
+                label.setAttribute("for", `${color.id}`)
+                label.style.backgroundColor = color.hex
+                //appendChild
+                colorBox.appendChild(input)
+                colorBox.appendChild(label)
+                //監聽
+                label.addEventListener("click", function () {
+                    iphoneColor = color.id
+                    colorText.innerText = `顏色 - ${color.cn}`
+                    image.src = `./img/i14-${iphoneModel}-${iphoneColor}.jfif`
+
+                    let storageItemBox = document.querySelector(".storage-item-box")
+                    storageItemBox.style.pointerEvents = "all";
+                    storageItemBox.style.opacity = "1";
+                })
+            })
+            itemBox.appendChild(h3)
+            itemBox.appendChild(colorText)
+            itemBox.appendChild(colorBox)
+            optionArea.appendChild(itemBox)
+
+            // for(let i = 0; i < iphoneColor.length; i++){
+            //     let input = document.createElement("input")
+            //     input.setAttribute("class","color-input")
+            //     input.name = "iphoneColor"
+            //     input.id = `iphoneColor${i}`
+            //     let label = document.createElement("label")
+            //     label.setAttribute("class",`color-dot ${iphoneColor[i].name}`)
+            // }
+        }
+        function createIPhoneStorage() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box storage-item-box")
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "儲存裝置。<span>你需要多少儲存空間？</span>"
+            itemBox.appendChild(h3)
+
+            iphoneStorageArr.forEach(s => {
+                let input = document.createElement("input");
+                input.setAttribute("class", "item-input");
+                input.type = "radio"
+                input.name = "iphoneStorage"
+                input.id = `iphoneStorage${s.storage}`
+                //label for input
+                let label = document.createElement("label");
+                label.setAttribute("class", "item storage-item");
+                label.setAttribute("for", `iphoneStorage${s.storage}`);
+                //容量
+                let nameDiv = document.createElement("div");
+                nameDiv.setAttribute("class", "storage-info");
+                let nameP = document.createElement("p");
+                nameP.setAttribute("class", "storage-name")
+                nameP.innerText = s.storage;
+                nameDiv.appendChild(nameP)
+                //標價
+                let priceDiv = document.createElement("div");
+                priceDiv.setAttribute("class", "price");
+                let priceP = document.createElement("p");
+                priceP.innerText = `NT$${currencyFormat.format(s.price)}`;
+
+                // if (iphoneModel == "normal") {
+                //     priceP.innerText = `NT$${currencyFormat.format(s.price)}`;
+                // } else if (iphoneModel == "max") {
+                //     priceP.innerText = `NT$${currencyFormat.format(s.price + 4000)}`;
+                // }
+                priceDiv.appendChild(priceP)
+                //appenChild
+                label.appendChild(nameDiv)
+                label.appendChild(priceDiv)
+                itemBox.appendChild(input);
+                itemBox.appendChild(label);
+                //監聽
+                label.addEventListener("click", function () {
+                    iphoneStorage = s.storage;
+                    checkIPhonePrice()
+                    sum.innerText = `總價：NT$${currencyFormat.format(iphonePrice)}`
+                });
+            })
+            optionArea.appendChild(itemBox)
+        }
+        function checkIPhonePrice() {
+            //iphone 底價
+            if (iphoneModel == "normal") {
+                iphoneBase = 34900;
+            } else if (iphoneModel == "max") {
+                iphoneBase = 38900;
+            };
+            //容量價格
+
+            switch (iphoneStorage) {
+                case "":
+                    iphonePrice = iphoneBase + 0;
+                    break;
+                case "128GB":
+                    iphonePrice = iphoneBase + 0;
+                    break;
+                case "256GB":
+                    iphonePrice = iphoneBase + 3500;
+                    break;
+                case "512GB":
+                    iphonePrice = iphoneBase + 10500;
+                    break;
+                case "1TB":
+                    iphonePrice = iphoneBase + 17500;
+                    break;
+            }
+        }
+
+        //iPad
+        function chooseIPad() {
+            container.innerHTML = "";
+            optionArea.innerHTML = "";
+            ipadColor = "gray"
+            iphoneStorage = "";
+            ipadWifi = "";
+            ipadBase = 19900;
+            ipadPrice = 0;
+            image.src = `./img/ipadAir.jfif`
+            sum.innerText = "總價：NT$19,900 起"
+            title.innerText = "購買iPad Air"
+            checkIPadPrice()
+
+            imageBox.appendChild(image);
+            total.appendChild(sum)
+            mainArea.appendChild(imageBox)
+            mainArea.appendChild(total)
+            container.appendChild(mainArea);
+            container.appendChild(optionArea);
+
+            createIPadColor();
+            createIPadStorage();
+            createIPadWifi();
+        }
+        function createIPadColor() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box color-item-box")
+            itemBox.style.pointerEvents = "all";
+            itemBox.style.opacity = "1";
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "外觀。<span>挑選你喜愛的外觀。</span>"
+            let colorText = document.createElement("p")
+            colorText.setAttribute("class", "color-text")
+            colorText.innerText = "顏色 - 太空灰色"
+            let colorBox = document.createElement("div")
+            colorBox.setAttribute("class", "color-box")
+
+            ipadColorArr.forEach(color => {
+                //input
+                let input = document.createElement("input")
+                input.setAttribute("class", "color-input")
+                input.type = "radio"
+                input.name = "ipadColor"
+                input.id = color.id
+                //label 顏色圈圈
+                let label = document.createElement("label")
+                label.setAttribute("class", `color-dot ${color.id}`)
+                label.setAttribute("for", `${color.id}`)
+                label.style.backgroundColor = color.hex
+                //appendChild
+                colorBox.appendChild(input)
+                colorBox.appendChild(label)
+                //監聽
+                label.addEventListener("click", function () {
+                    ipadColor = color.id
+                    colorText.innerText = `顏色 - ${color.cn}`
+                    image.src = `./img/ipadAir-${ipadColor}.jfif`
+
+                    let storageItemBox = document.querySelector(".storage-item-box")
+                    storageItemBox.style.pointerEvents = "all";
+                    storageItemBox.style.opacity = "1";
+                })
+            })
+            itemBox.appendChild(h3)
+            itemBox.appendChild(colorText)
+            itemBox.appendChild(colorBox)
+            optionArea.appendChild(itemBox)
+        }
+        function createIPadStorage() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box storage-item-box")
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "儲存裝置。<span>你需要多少儲存空間？</span>"
+            itemBox.appendChild(h3)
+
+            ipadStorageArr.forEach(s => {
+                let input = document.createElement("input");
+                input.setAttribute("class", "item-input");
+                input.type = "radio"
+                input.name = "ipadStorage"
+                input.id = `ipadStorage${s.storage}`
+                //label for input
+                let label = document.createElement("label");
+                label.setAttribute("class", "item storage-item");
+                label.setAttribute("for", `ipadStorage${s.storage}`);
+                //容量
+                let nameDiv = document.createElement("div");
+                nameDiv.setAttribute("class", "storage-info");
+                let nameP = document.createElement("p");
+                nameP.setAttribute("class", "storage-name")
+                nameP.innerText = s.storage;
+                nameDiv.appendChild(nameP)
+                //標價
+                let priceDiv = document.createElement("div");
+                priceDiv.setAttribute("class", "price");
+                let priceP = document.createElement("p");
+                priceP.innerText = `NT$${currencyFormat.format(s.price)}`;
+
+                priceDiv.appendChild(priceP)
+                //appenChild
+                label.appendChild(nameDiv)
+                label.appendChild(priceDiv)
+                itemBox.appendChild(input);
+                itemBox.appendChild(label);
+                //監聽
+                label.addEventListener("click", function () {
+                    ipadStorage = s.storage;
+                    checkIPadPrice();
+
+                    //價格總計 判斷有沒有"起"
+                    if (ipadWifi == "") {
+                        sum.innerText = `總價：NT$${currencyFormat.format(ipadPrice)} 起`
+                    } else {
+                        sum.innerText = `總價：NT$${currencyFormat.format(ipadPrice)}`
+                    }
+
+                    //選擇容量後，Wifi解除禁用
+                    let wifiItemBox = document.querySelector(".wifi-item-box")
+                    wifiItemBox.style.pointerEvents = "all";
+                    wifiItemBox.style.opacity = "1";
+
+                    //選了容量後 Wifi標價要改價格
+                    let wifiItem = document.querySelectorAll(".wifi-item")
+                    for (let w = 0; w < wifiItem.length; w++) {
+                        let price = wifiItem[w].querySelector(".price");
+                        let p = price.querySelector("p")
+                        if (ipadStorage == "64GB") {
+                            p.innerText = `NT$${currencyFormat.format(ipadWifiArr[w].price)}`
+                        } else if (ipadStorage == "256GB") {
+                            p.innerText = `NT$${currencyFormat.format(ipadWifiArr[w].price + 5000)}`;
+                        }
+                    }
+                });
+            })
+            optionArea.appendChild(itemBox)
+        }
+        function createIPadWifi() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box wifi-item-box")
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "連線能力。<span>選擇連線方式。</span>"
+            itemBox.appendChild(h3)
+
+            ipadWifiArr.forEach(w => {
+                debugger
+                let input = document.createElement("input");
+                input.setAttribute("class", "item-input");
+                input.type = "radio"
+                input.name = "ipadWifi"
+                input.id = `ipadWifi${w.id}`
+                //label for input
+                let label = document.createElement("label");
+                label.setAttribute("class", "item wifi-item");
+                label.setAttribute("for", `ipadWifi${w.id}`);
+                //容量
+                let nameDiv = document.createElement("div");
+                nameDiv.setAttribute("class", "wifi-info");
+                let nameP = document.createElement("p");
+                nameP.setAttribute("class", "wifi-name")
+                nameP.innerText = w.way;
+                nameDiv.appendChild(nameP)
+                //標價
+                let priceDiv = document.createElement("div");
+                priceDiv.setAttribute("class", "price");
+                let priceP = document.createElement("p");
+                priceP.innerText = `NT$${currencyFormat.format(w.price)}`;
+
+                priceDiv.appendChild(priceP)
+                //appenChild
+                label.appendChild(nameDiv);
+                label.appendChild(priceDiv);
+                itemBox.appendChild(input);
+                itemBox.appendChild(label);
+                //監聽
+                label.addEventListener("click", function () {
+                    ipadWifi = w.way;
+                    checkIPadPrice();
+                    if (ipadWifi == "") {
+                        sum.innerText = `總價：NT$${currencyFormat.format(ipadPrice)} 起`
+                    } else {
+                        sum.innerText = `總價：NT$${currencyFormat.format(ipadPrice)}`
+                    }
+                });
+            })
+            optionArea.appendChild(itemBox)
+        }
+        function checkIPadPrice() {
+            //iphone 底價
+            if (ipadStorage == "64GB") {
+                ipadBase = 19900;
+            } else if (ipadStorage == "256GB") {
+                ipadBase = 24900;
+            };
+            //容量價格
+
+            switch (ipadWifi) {
+                case "":
+                    ipadPrice = ipadBase + 0;
+                    break;
+                case "WiFi":
+                    ipadPrice = ipadBase + 0;
+                    break;
+                case "WiFi + 行動網路":
+                    ipadPrice = ipadBase + 5000;
+                    break;
+            }
+        }
+
+        //MacBook
+        function chooseMacBook() {
+            container.innerHTML = "";
+            optionArea.innerHTML = "";
+            macBookChip = "M1"
+            macBookColor = "gray"
+            macBookBase = 30900;
+            macBookPrice = 0;
+            image.src = `./img/macBookAir-m1-gray.jfif`
+            sum.innerText = "總價：NT$30,900 起"
+            title.innerText = "購買MacBook Air"
+            checkMacBookPrice();
+
+            imageBox.appendChild(image);
+            total.appendChild(sum)
+            mainArea.appendChild(imageBox)
+            mainArea.appendChild(total)
+            container.appendChild(mainArea);
+            container.appendChild(optionArea);
+
+            createMacBookChip();
+
+        }
+        function createMacBookChip() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box")
+            itemBox.style.pointerEvents = "all";
+            itemBox.style.opacity = "1";
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "晶片。<span>選擇要搭配的晶片。</span>"
+            itemBox.appendChild(h3)
+
+            macBookChipArr.forEach(c => {
+                let input = document.createElement("input");
+                input.setAttribute("class", "item-input");
+                input.type = "radio"
+                input.name = "macBookChip"
+                input.id = `macBookChip${c.chip}`
+                //label for input
+                let label = document.createElement("label");
+                label.setAttribute("class", "item storage-item");
+                label.setAttribute("for", `macBookChip${c.chip}`);
+                //容量
+                let nameDiv = document.createElement("div");
+                nameDiv.setAttribute("class", "chip-info");
+                let nameP = document.createElement("p");
+                nameP.setAttribute("class", "chip-name")
+                nameP.innerText = `搭配 ${c.chip} 晶片`;
+                nameDiv.appendChild(nameP)
+                //標價
+                let priceDiv = document.createElement("div");
+                priceDiv.setAttribute("class", "price");
+                let priceP = document.createElement("p");
+                priceP.innerText = `NT$${currencyFormat.format(c.price)}`;
+                priceDiv.appendChild(priceP)
+                //appenChild
+                label.appendChild(nameDiv)
+                label.appendChild(priceDiv)
+                itemBox.appendChild(input);
+                itemBox.appendChild(label);
+                //監聽
+                label.addEventListener("click", function () {
+                    macBookChip = c.chip;
+                    checkMacBookPrice();
+                    sum.innerText = `總價：NT$${currencyFormat.format(macBookBase)} 起`
+
+                    let macBookColorBox = document.querySelector(".color-item-box")
+                    if (macBookColorBox == null) {
+                        createMacBookColor()
+                    } else {
+                        optionArea.removeChild(macBookColorBox);
+                        createMacBookColor()
+                    }
+                    let macBookModelBox = document.querySelector(".model-item-box")
+                    if (macBookModelBox != null){
+                        optionArea.removeChild(macBookModelBox);
+                    }
+
+                });
+            })
+            optionArea.appendChild(itemBox)
+        }
+        function createMacBookColor() {
+            if (macBookChip == "M1") {
+                createMacBookM1Color();
+            } else {
+                createMacBookM2Color();
+            }
+        }
+        function createMacBookM1Color() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box color-item-box")
+            itemBox.style.pointerEvents = "all";
+            itemBox.style.opacity = "1";
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "外觀。<span>挑選你喜愛的外觀。</span>"
+            let colorText = document.createElement("p")
+            colorText.setAttribute("class", "color-text")
+            colorText.innerText = "顏色 - 太空灰色"
+            let colorBox = document.createElement("div")
+            colorBox.setAttribute("class", "color-box")
+
+            macBookM1Color.forEach(color => {
+                //input
+                let input = document.createElement("input")
+                input.setAttribute("class", "color-input")
+                input.type = "radio"
+                input.name = "macBookColor"
+                input.id = color.id
+                //label 顏色圈圈
+                let label = document.createElement("label")
+                label.setAttribute("class", `color-dot ${color.id}`)
+                label.setAttribute("for", `${color.id}`)
+                label.style.backgroundColor = color.hex
+                //appendChild
+                colorBox.appendChild(input)
+                colorBox.appendChild(label)
+                //監聽
+                label.addEventListener("click", function () {
+                    macBookColor = color.id
+                    colorText.innerText = `顏色 - ${color.cn}`
+                    image.src = `./img/macBookAir-${macBookChip}-${macBookColor}.jfif`
+
+                    let macBookModelBox = document.querySelector(".model-item-box")
+                    if (macBookModelBox == null) {
+                        createMacBookM1Model();
+                    } else {
+                        optionArea.removeChild(macBookModelBox);
+                        createMacBookM1Model();
+                    }
+                })
+            })
+            itemBox.appendChild(h3)
+            itemBox.appendChild(colorText)
+            itemBox.appendChild(colorBox)
+            optionArea.appendChild(itemBox)
+        }
+        function createMacBookM2Color() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box color-item-box")
+            itemBox.style.pointerEvents = "all";
+            itemBox.style.opacity = "1";
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "外觀。<span>挑選你喜愛的外觀。</span>"
+            let colorText = document.createElement("p")
+            colorText.setAttribute("class", "color-text")
+            colorText.innerText = "顏色 - 午夜色"
+            let colorBox = document.createElement("div")
+            colorBox.setAttribute("class", "color-box")
+
+            macBookM2Color.forEach(color => {
+                //input
+                let input = document.createElement("input")
+                input.setAttribute("class", "color-input")
+                input.type = "radio"
+                input.name = "macBookColor"
+                input.id = color.id
+                //label 顏色圈圈
+                let label = document.createElement("label")
+                label.setAttribute("class", `color-dot ${color.id}`)
+                label.setAttribute("for", `${color.id}`)
+                label.style.backgroundColor = color.hex
+                //appendChild
+                colorBox.appendChild(input)
+                colorBox.appendChild(label)
+                //監聽
+                label.addEventListener("click", function () {
+                    macBookColor = color.id
+                    colorText.innerText = `顏色 - ${color.cn}`
+                    image.src = `./img/macBookAir-${macBookChip}-${macBookColor}.jfif`
+
+                    let macBookModelBox = document.querySelector(".model-item-box")
+                    if (macBookModelBox == null) {
+                        createMacBookM2Model();
+                    } else {
+                        optionArea.removeChild(macBookModelBox);
+                        createMacBookM2Model();
+                    }
+                })
+            })
+            itemBox.appendChild(h3)
+            itemBox.appendChild(colorText)
+            itemBox.appendChild(colorBox)
+            optionArea.appendChild(itemBox)
+        }
+        function createMacBookM1Model() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box model-item-box")
+            itemBox.style.pointerEvents = "all";
+            itemBox.style.opacity = "1";
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "規格。<span>選擇適合你的規格。</span>"
+            itemBox.appendChild(h3)
+
+            macBookM1Model.forEach(m => {
+                let input = document.createElement("input");
+                input.setAttribute("class", "item-input");
+                input.type = "radio"
+                input.name = "macBookModel"
+                input.id = `macBookModel${m.storage}`
+                //label for input
+                let label = document.createElement("label");
+                label.setAttribute("class", "item model-item");
+                label.setAttribute("for", `macBookModel${m.storage}`);
+                //容量
+                let nameDiv = document.createElement("div");
+                nameDiv.setAttribute("class", "model-info");
+                let cpuP = document.createElement("p");
+                let gpuP = document.createElement("p");
+                let memoryP = document.createElement("p");
+                let storageP = document.createElement("p");
+                cpuP.setAttribute("class", "model-name");
+                gpuP.setAttribute("class", "model-name");
+                memoryP.setAttribute("class", "model-name");
+                storageP.setAttribute("class", "model-name");
+                cpuP.innerText = `${m.cpu} 核心 CPU`;
+                gpuP.innerText = `${m.gpu} 核心 GPU`;
+                memoryP.innerText = `${m.memory}GB 統一記憶體`;
+                storageP.innerText = `${m.storage}GB SSD 儲存裝置¹`;
+                nameDiv.appendChild(cpuP);
+                nameDiv.appendChild(gpuP);
+                nameDiv.appendChild(memoryP);
+                nameDiv.appendChild(storageP);
+
+                m.desc.forEach(d => {
+                    let descP = document.createElement("p");
+                    descP.setAttribute("class", "sub-text")
+                    descP.innerText = d;
+                    nameDiv.appendChild(descP)
+                });      
+
+                //標價
+                let priceDiv = document.createElement("div");
+                priceDiv.setAttribute("class", "price");
+                let priceP = document.createElement("p");
+                priceP.innerText = `NT$${currencyFormat.format(m.price)}`;
+                priceDiv.appendChild(priceP)
+                //appenChild
+                label.appendChild(nameDiv)
+                label.appendChild(priceDiv)
+                itemBox.appendChild(input);
+                itemBox.appendChild(label);
+                //監聽
+                label.addEventListener("click", function () {
+                    macBookPrice = m.price;
+                    checkMacBookPrice();
+                    sum.innerText = `總價：NT$${currencyFormat.format(macBookPrice)}`
+
+                    // let macBookColorBox = document.querySelector(".color-item-box")
+                    // if (macBookColorBox == null) {
+                    //     createMacBookColor()
+                    // } else {
+                    //     optionArea.removeChild(macBookColorBox);
+                    //     createMacBookColor()
+                    // }
+                });
+            })
+            optionArea.appendChild(itemBox)
+        }
+        function createMacBookM2Model() {
+            let itemBox = document.createElement("div")
+            itemBox.setAttribute("class", "item-box model-item-box")
+            itemBox.style.pointerEvents = "all";
+            itemBox.style.opacity = "1";
+            let h3 = document.createElement("h3")
+            h3.innerHTML = "規格。<span>選擇適合你的規格。</span>"
+            itemBox.appendChild(h3)
+
+            macBookM2Model.forEach(m => {
+                let input = document.createElement("input");
+                input.setAttribute("class", "item-input");
+                input.type = "radio"
+                input.name = "macBookModel"
+                input.id = `macBookModel${m.storage}`
+                //label for input
+                let label = document.createElement("label");
+                label.setAttribute("class", "item model-item");
+                label.setAttribute("for", `macBookModel${m.storage}`);
+                //容量
+                let nameDiv = document.createElement("div");
+                nameDiv.setAttribute("class", "model-info");
+                let cpuP = document.createElement("p");
+                let gpuP = document.createElement("p");
+                let memoryP = document.createElement("p");
+                let storageP = document.createElement("p");
+                cpuP.setAttribute("class", "model-name");
+                gpuP.setAttribute("class", "model-name");
+                memoryP.setAttribute("class", "model-name");
+                storageP.setAttribute("class", "model-name");
+                cpuP.innerText = `${m.cpu} 核心 CPU`;
+                gpuP.innerText = `${m.gpu} 核心 GPU`;
+                memoryP.innerText = `${m.memory}GB 統一記憶體`;
+                storageP.innerText = `${m.storage}GB SSD 儲存裝置¹`;
+                nameDiv.appendChild(cpuP);
+                nameDiv.appendChild(gpuP);
+                nameDiv.appendChild(memoryP);
+                nameDiv.appendChild(storageP);
+
+                m.desc.forEach(d => {
+                    let descP = document.createElement("p");
+                    descP.setAttribute("class", "sub-text")
+                    descP.innerText = d;
+                    nameDiv.appendChild(descP)
+                });      
+
+                //標價
+                let priceDiv = document.createElement("div");
+                priceDiv.setAttribute("class", "price");
+                let priceP = document.createElement("p");
+                priceP.innerText = `NT$${currencyFormat.format(m.price)}`;
+                priceDiv.appendChild(priceP)
+                //appenChild
+                label.appendChild(nameDiv)
+                label.appendChild(priceDiv)
+                itemBox.appendChild(input);
+                itemBox.appendChild(label);
+                //監聽
+                label.addEventListener("click", function () {
+                    macBookPrice = m.price;
+                    checkMacBookPrice();
+                    sum.innerText = `總價：NT$${currencyFormat.format(macBookPrice)}`
+                });
+            })
+            optionArea.appendChild(itemBox)
+        }
+
+        function checkMacBookPrice() {
+            if (macBookChip == "M1") {
+                macBookBase = 30900;
+            } else {
+                macBookBase = 37900;
+            }
+        }
+
+//#endregion ===== Function =====
+    </script>
+</body>
+
+</html>
