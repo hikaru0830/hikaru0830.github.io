@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
+    </style>
+    <script src="https://kit.fontawesome.com/4d9c8bb258.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="Calendar.css">
+
+</head>
+
+<body>
+    <h1>行事曆 | Calendar</h1>
+    <header>
+        <!-- <div class="circle-box">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div> -->
+        <nav>
+            <i class="fa-solid fa-circle-chevron-left preMonth"></i>
+            <h2>2023年1月</h2>
+            <i class="fa-solid fa-circle-chevron-right nextMonth"></i>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <img src="./img/write.png" alt="">
+    </main>
+
+    <script>
+
+
+        //宣告
+        let today, firstDay, lastDay;
+        let h2, td;
+        let preMonth, nextMonth;
+
+        //DOM
+        h2 = document.querySelector("h2");
+        tds = document.querySelectorAll("td");
+        preMonth = document.querySelector(".preMonth");
+        nextMonth = document.querySelector(".nextMonth");
+        preMonth.addEventListener("click", goPrevious);
+        nextMonth.addEventListener("click", goNext);
+
+        //Function
+        function getToday() {
+            today = new Date();
+            showMonth();
+        }
+        function showMonth() {
+            h2.innerText = `${today.getFullYear()}年${today.getMonth() + 1}月`
+        }
+        function changeMonth(){
+            tds.forEach(td => {
+                td.innerHTML = ""
+            })
+        }
+
+        function getFirstAndLastDay() {
+            let month = new Date(today.getFullYear(), today.getMonth(), 1)
+            firstDay = month.getDay();
+            lastDay = new Date(today.getFullYear(), today.getMonth()
+                + 1, 0).getDate()
+        }
+
+        function importDate() {
+            getFirstAndLastDay();
+            let num = 1
+            for (let i = firstDay; i < firstDay+lastDay; i++) {
+                let span = document.createElement("span")
+                span.innerText = num
+                tds[i].appendChild(span)
+                num++;
+            }
+        }
+        function goPrevious() {
+            today = new Date(today.getFullYear(), today.getMonth()-1, today.getDate())
+            showMonth();
+            changeMonth();
+            importDate();
+        }
+        function goNext() {
+            today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate())
+            showMonth();
+            changeMonth();
+            importDate();
+        }
+
+        // window.onload
+        window.onload = function () {
+            getToday();
+            importDate();
+        }
+
+
+
+
+    </script>
+    <script src="./Calendar.js"></script>
+</body>
+
+</html>
