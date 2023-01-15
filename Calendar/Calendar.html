@@ -284,6 +284,7 @@
             closeEditText();
         }
         function addList() {
+            closeEditText();
             let year = today.getFullYear();
             let month = today.getMonth() + 1;
             let key = `${year}-${month}-${chooseDay}`
@@ -301,8 +302,10 @@
                 showListOnModal();
                 changeMonth();
             }
+            
         }
         function setAddBtn() {
+            textArea.value = "";
             plus.style.pointerEvents = "none"
             plus.style.opacity = "0.3"
             let add = document.createElement("div");
@@ -339,6 +342,7 @@
             }
         }
         function closeEditText(){
+            textArea.value = "";
             editText.style.display = "none"
             editTextBtn.removeChild(editTextBtn.childNodes[0])
             plus.style.pointerEvents = "all"
