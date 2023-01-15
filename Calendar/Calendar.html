@@ -18,19 +18,7 @@
 <body>
     <h1>行事曆 | Calendar</h1>
     <header>
-        <!-- <div class="circle-box">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-        </div> -->
+
         <nav>
             <i class="fa-solid fa-circle-chevron-left preMonth"></i>
             <h2>2023年1月</h2>
@@ -111,22 +99,68 @@
         </div>
         <img src="./img/write.png" alt="">
     </main>
+    <div class="modal">
+        <div class="close-modal">
+            <span class="date-title"></span>
+            <i class="fa-solid fa-circle-xmark"></i>
+        </div>
+        <div class="todoList-area">
+            <p class="noList">目前尚無行程</p>
+            <ul class="modal-ul">
+            </ul>
+        </div>
+        <div class="edit-text">
+            <textarea name="" id="" rows="5" placeholder="請輸入內容"></textarea>
+            <div class="edit-text-btn">
+                <div class="close-text">關閉</div>
+            </div>
+        </div>
+        <div class="edit-area">
+            <div class="edit-btn">
+                <i class="fa-solid fa-plus plus"></i>
+                <i class="fa-solid fa-pen-to-square edit"></i>
+                <i class="fa-regular fa-trash-can delete"></i>
+            </div>
+
+
+        </div>
+    </div>
 
     <script>
 
-
         //宣告
-        let today, firstDay, lastDay;
+        let today, firstDay, lastDay, chooseDay;
         let h2, td;
-        let preMonth, nextMonth;
+        let goPreviousMonth, goNextMonth;
+        let modal, dateTitle, close;
+        let plus, edit, deleteBtn, editText, mainBtn, closeText, textArea, editTextBtn;
+        // let add, store;
 
         //DOM
         h2 = document.querySelector("h2");
         tds = document.querySelectorAll("td");
-        preMonth = document.querySelector(".preMonth");
-        nextMonth = document.querySelector(".nextMonth");
-        preMonth.addEventListener("click", goPrevious);
-        nextMonth.addEventListener("click", goNext);
+        modal = document.querySelector(".modal")
+        dateTitle = document.querySelector(".date-title")
+        modalCloseBtn = document.querySelector(".close-modal")
+        goPreviousMonth = document.querySelector(".preMonth");
+        goNextMonth = document.querySelector(".nextMonth");
+        plus = document.querySelector(".plus");
+        edit = document.querySelector(".edit");
+        editText = document.querySelector(".edit-text");
+        deleteBtn = document.querySelector(".delete");
+        mainBtn = document.querySelector(".main-btn")
+        closeText = document.querySelector(".close-text");
+        textArea = document.querySelector("textarea")
+        editTextBtn = document.querySelector(".edit-text-btn")
+        // add = document.querySelector(".add")
+        // store = document.querySelector("store")
+
+        goPreviousMonth.addEventListener("click", goPrevious);
+        goNextMonth.addEventListener("click", goNext);
+        modalCloseBtn.addEventListener("click", closeModal);
+        plus.addEventListener("click", setAddBtn);
+        edit.addEventListener("click", setStoreBtn);
+        closeText.addEventListener("click", closeEditText);
 
         //Function
         function getToday() {
@@ -136,46 +170,187 @@
         function showMonth() {
             h2.innerText = `${today.getFullYear()}年${today.getMonth() + 1}月`
         }
-        function changeMonth(){
+        function changeMonth() {
             tds.forEach(td => {
                 td.innerHTML = ""
+                td.style.pointerEvents = "all"
+                td.style.opacity = "1"
             })
+            showMonth();
+            getFirstAndLastDay();
+            importDate();
+            importOtherMonth();
         }
-
         function getFirstAndLastDay() {
             let month = new Date(today.getFullYear(), today.getMonth(), 1)
             firstDay = month.getDay();
             lastDay = new Date(today.getFullYear(), today.getMonth()
                 + 1, 0).getDate()
         }
-
         function importDate() {
-            getFirstAndLastDay();
             let num = 1
-            for (let i = firstDay; i < firstDay+lastDay; i++) {
+            for (let i = firstDay; i < firstDay + lastDay; i++) {
                 let span = document.createElement("span")
                 span.innerText = num
                 tds[i].appendChild(span)
+                tds[i].addEventListener("click", function () {
+                    chooseDay = span.innerText;
+                    modal.style.right = "0";
+                    dateTitle.innerText = `${today.getFullYear()}-${today.getMonth() + 1}-${span.innerText}`
+                    showListOnModal();
+                });
+
+                //表格顯示todolist
+                let key = `${today.getFullYear()}-${today.getMonth() + 1}-${num}`
+                if (localStorage.getItem(key) != null) {
+                    let todoListArr = JSON.parse(localStorage.getItem(key));
+                    let ul = document.createElement("ul");
+                    todoListArr.forEach((todo, index) => {
+                        let li = document.createElement("li");
+                        li.setAttribute("class", "todoList")
+                        li.innerText = todo;
+                        ul.appendChild(li)
+                    })
+                    tds[i].appendChild(ul)
+                }
                 num++;
             }
         }
+        function importOtherMonth() {
+            let preMonth = new Date(today.getFullYear(), today.getMonth(), 0)
+            let nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1)
+            let preMonthLastDay = preMonth.getDate();
+            let preNum = preMonthLastDay - firstDay + 1
+            let nextNum = 1
+            for (let i = 0; i < firstDay; i++) {
+                let span = document.createElement("span")
+                span.innerText = preNum;
+                tds[i].appendChild(span);
+                tds[i].style.pointerEvents = "none"
+                tds[i].style.opacity = "0.2"
+
+                //表格顯示todolist
+                let month = preMonth.getMonth();
+                let year = preMonth.getFullYear()
+                let key = `${year}-${month + 1}-${preNum}`
+                if (localStorage.getItem(key) != null) {
+                    let todoListArr = JSON.parse(localStorage.getItem(key));
+                    let ul = document.createElement("ul");
+                    todoListArr.forEach((todo, index) => {
+                        let li = document.createElement("li");
+                        li.setAttribute("class", "todoList")
+                        li.innerText = todo;
+                        ul.appendChild(li)
+                    })
+                    tds[i].appendChild(ul)
+                }
+                preNum++;
+            }
+            for (let x = firstDay + lastDay; x <= 42; x++) {
+                let span = document.createElement("span")
+                span.innerText = nextNum
+                tds[x].appendChild(span)
+                tds[x].style.pointerEvents = "none"
+                tds[x].style.opacity = "0.2"
+
+                //表格顯示todolist
+                let year = nextMonth.getFullYear()
+                let month = nextMonth.getMonth();
+                let key = `${year}-${month + 1}-${nextNum}`
+                if (localStorage.getItem(key) != null) {
+                    let todoListArr = JSON.parse(localStorage.getItem(key));
+                    let ul = document.createElement("ul");
+                    todoListArr.forEach((todo, index) => {
+                        let li = document.createElement("li");
+                        li.setAttribute("class", "todoList")
+                        li.innerText = todo;
+                        ul.appendChild(li)
+                    })
+                    tds[x].appendChild(ul)
+                }
+                nextNum++;
+            }
+        }
         function goPrevious() {
-            today = new Date(today.getFullYear(), today.getMonth()-1, today.getDate())
-            showMonth();
+            today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate())
             changeMonth();
-            importDate();
         }
         function goNext() {
             today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate())
-            showMonth();
             changeMonth();
-            importDate();
+        }
+        function closeModal() {
+            modal.style.right = "-25vw";
+            closeEditText();
+        }
+        function addList() {
+            let year = today.getFullYear();
+            let month = today.getMonth() + 1;
+            let key = `${year}-${month}-${chooseDay}`
+            let todoListArr = [];
+
+            if (textArea.value != "") {
+
+                if (localStorage.getItem(key) != null) {
+                    todoListArr = JSON.parse(localStorage.getItem(key));
+                    todoListArr.push(textArea.value)
+                } else {
+                    todoListArr.push(textArea.value)
+                }
+                localStorage.setItem(key, JSON.stringify(todoListArr));
+                showListOnModal();
+                changeMonth();
+            }
+        }
+        function setAddBtn() {
+            plus.style.pointerEvents = "none"
+            plus.style.opacity = "0.3"
+            let add = document.createElement("div");
+            add.innerText = "新增";
+            add.setAttribute("class", "main-btn add");
+            editTextBtn.insertBefore(add, editTextBtn.childNodes[0])
+            editText.style.display = "block"
+            add.addEventListener("click", addList)
+        }
+        function setStoreBtn() {
+            let store = document.createElement("div");
+            store.innerText = "儲存";
+            store.setAttribute("class", "main-btn store");
+            editTextBtn.insertBefore(store, editTextBtn.childNodes[0])
+            editText.style.display = "block"
+        }
+        function showListOnModal() {
+            let key = `${today.getFullYear()}-${today.getMonth() + 1}-${chooseDay}`
+            let noList = document.querySelector(".noList")
+            let ul = document.querySelector(".modal-ul");
+            if (localStorage.getItem(key) != null) {
+                noList.style.display = "none"
+                let todoListArr = JSON.parse(localStorage.getItem(key));
+                ul.innerHTML = "";
+                todoListArr.forEach((todo, index) => {
+                    let li = document.createElement("li");
+                    li.setAttribute("class", "modal-todoList")
+                    li.innerText = todo;
+                    ul.appendChild(li)
+                })
+            } else {
+                ul.innerHTML = "";
+                noList.style.display = "block"
+            }
+        }
+        function closeEditText(){
+            editText.style.display = "none"
+            editTextBtn.removeChild(editTextBtn.childNodes[0])
+            plus.style.pointerEvents = "all"
+            plus.style.opacity = "1"
         }
 
         // window.onload
         window.onload = function () {
             getToday();
+            getFirstAndLastDay();
             importDate();
+            importOtherMonth();
         }
 
 
