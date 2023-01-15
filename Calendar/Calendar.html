@@ -283,15 +283,20 @@
             modal.style.right = "-25vw";
             closeEditText();
         }
+        function closeEditText(){
+            textArea.value = "";
+            editText.style.display = "none"
+            editTextBtn.removeChild(editTextBtn.childNodes[0])
+            plus.style.pointerEvents = "all"
+            plus.style.opacity = "1"
+        }
         function addList() {
-            closeEditText();
             let year = today.getFullYear();
             let month = today.getMonth() + 1;
             let key = `${year}-${month}-${chooseDay}`
             let todoListArr = [];
 
             if (textArea.value != "") {
-
                 if (localStorage.getItem(key) != null) {
                     todoListArr = JSON.parse(localStorage.getItem(key));
                     todoListArr.push(textArea.value)
@@ -299,11 +304,12 @@
                     todoListArr.push(textArea.value)
                 }
                 localStorage.setItem(key, JSON.stringify(todoListArr));
+                closeEditText();
                 showListOnModal();
                 changeMonth();
             }
-            
         }
+
         function setAddBtn() {
             textArea.value = "";
             plus.style.pointerEvents = "none"
@@ -313,7 +319,10 @@
             add.setAttribute("class", "main-btn add");
             editTextBtn.insertBefore(add, editTextBtn.childNodes[0])
             editText.style.display = "block"
-            add.addEventListener("click", addList)
+            add.addEventListener("click", function(){
+                addList();
+                textArea.value = "";
+            });
         }
         function setStoreBtn() {
             let store = document.createElement("div");
@@ -341,13 +350,6 @@
                 noList.style.display = "block"
             }
         }
-        function closeEditText(){
-            textArea.value = "";
-            editText.style.display = "none"
-            editTextBtn.removeChild(editTextBtn.childNodes[0])
-            plus.style.pointerEvents = "all"
-            plus.style.opacity = "1"
-        }
 
         // window.onload
         window.onload = function () {
@@ -361,7 +363,6 @@
 
 
     </script>
-    <script src="./Calendar.js"></script>
 </body>
 
 </html>
