@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/4d9c8bb258.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./v.css">
+
+</head>
+
+<body>
+    <section>
+        <header>
+            <nav>
+                <i class="fa-solid fa-book"></i>
+            </nav>
+        </header>
+        <main>
+            <div class="modal"></div>
+            <div class="container">
+                <div class="hint">
+                    <p class="cn">擴展</p>
+                    <p class="speech">verb</p>
+                </div>
+                <div class="spell-box">
+                    <!-- <div class="spell"></div> -->
+                    <div class="true-or-false">
+                        <i class="fa-regular fa-circle icon bingo"></i>
+                        <i class="fa-solid fa-x icon wrong"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="reserve-box">
+                <!-- <div class="reserve-item"></div> -->
+            </div>
+        </main>
+    </section>
+</body>
+<script>
+    //宣告
+    let vocabulary = [
+        { word: "message", cn: "訊息", speech: "noun.", cnSpeech: "名詞" },
+        { word: "budget", cn: "預算", speech: "noun.", cnSpeech: "名詞" },
+        { word: "confidential", cn: "機密的", speech: "adj.", cnSpeech: "形容詞" },
+        { word: "environment", cn: "環境", speech: "noun.", cnSpeech: "名詞" },
+        { word: "extand", cn: "擴展", speech: "verb.", cnSpeech: "動詞" },
+        { word: "refrigerator", cn: "冰箱", speech: "noun.", cnSpeech: "名詞" },
+    ]
+    let pushAlphArr=[];
+    let random;
+    let trueFalse = document.querySelector(".true-or-false")
+    let reverseBox = document.querySelector(".reserve-box")
+    let spellBox = document.querySelector(".spell-box")
+    let bingo = document.querySelector(".bingo")
+    let wrong = document.querySelector(".wrong")
+    let hintCn = document.querySelector(".cn")
+    let hintSpeech = document.querySelector(".speech")
+
+    //DOM
+
+    //Function
+
+    function CreateRandom(){
+        random = Math.floor(Math.random()*vocabulary.length);
+    }
+    function putReserve(){
+        let lettersArr = vocabulary[random].word.split("");
+        lettersArr.sort(function(a,b){
+            a = Math.random();
+            b = Math.random();
+            return b - a;
+        })
+        lettersArr.forEach(letter => {
+            //中間空格
+            let spell = document.createElement("div")
+            spell.setAttribute("class","spell")
+
+            //候選欄
+            let reserveItem = document.createElement("div")
+            reserveItem.setAttribute("class","reserve-item")
+            reserveItem.innerText = letter;
+            reverseBox.appendChild(reserveItem)
+            spellBox.insertBefore(spell,trueFalse)
+
+            reserveItem.addEventListener("click", function(){
+                reverseBox.removeChild(reserveItem);
+                pushAlphArr.push(reserveItem.innerText);
+                showAlph();
+                judgeCorrect();
+            })
+        })
+    
+        //提示
+        hintCn.innerText = vocabulary[random].cn;
+        hintSpeech.innerText = vocabulary[random].speech;
+    }
+    function showAlph(){
+        let spell = document.querySelectorAll(".spell")
+        pushAlphArr.forEach((alph, index) => {
+            spell[index].innerText = alph
+        })
+    }
+
+    function judgeCorrect(){
+        let lettersArr = vocabulary[random].word.split("");
+        let word = pushAlphArr.join("");
+        if((pushAlphArr.length == lettersArr.length)&&(word == vocabulary[random].word)){
+            setTimeout("showO()", 500)
+        }else if((pushAlphArr.length == lettersArr.length)&&(word != vocabulary[random].word)){
+            setTimeout("showX()", 500)
+        }
+    }
+    function showO(){ bingo.style.display = "block" }
+    function showX(){ wrong.style.display = "block" }
+
+    //window.onload
+
+    window.onload = function(){
+        CreateRandom()
+        putReserve()
+    }
+
+</script>
+
+</html>
