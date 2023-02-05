@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./todoList.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="all">
+        <h1>Todo List</h1>
+        <div class="container">
+            <div class="addList">
+                <input class="add" type="text">
+                <div class="addBtn">新增</div>
+            </div>
+            <div class="list-box"></div>
+        </div>
+    </div>
+
+    <script>
+        //宣告
+        let num = 0;
+        let listBox = document.querySelector(".list-box");
+        let add = document.querySelector(".add");
+        let addBtn = document.querySelector(".addBtn");
+
+        //DOM
+        addBtn.addEventListener("click", addTodoList);
+
+
+        //Function
+        function updateData(){
+            listBox.innerHTML = ""
+            let uncheckedList = JSON.parse(localStorage.getItem("unchecked"));
+            let checkedList = JSON.parse(localStorage.getItem("checked"));
+            if(uncheckedList != null) renderTodoList(uncheckedList, "unchecked");
+            if(checkedList != null) renderTodoList(checkedList, "checked");
+
+        }
+        function renderTodoList(arr, status){
+            arr.forEach((item,index) => {
+                let listItem = document.createElement("div")
+                listItem.setAttribute("class","list-item")
+
+                let checkbox = document.createElement("input")
+                checkbox.setAttribute("class","checkbox")
+                checkbox.setAttribute("type","checkbox")
+                
+                if(status == "checked"){ //將已完成的項目維持打勾的狀態
+                    checkbox.setAttribute("checked","true")
+                }
+
+                let list = document.createElement("input")
+                list.setAttribute("type","text")
+                list.setAttribute("class","list")
+                list.setAttribute("disabled","true")
+                list.setAttribute("value",item)
+                
+                let editBtn = document.createElement("div")
+                editBtn.setAttribute("class","editBtn btn")
+                editBtn.innerText = "編輯"
+                
+                let deleteBtn = document.createElement("div")
+                deleteBtn.setAttribute("class","deleteBtn btn")
+                deleteBtn.innerText = "刪除"
+
+                //編輯按鈕、刪除按鈕、核取方塊的監聽事件↓↓
+                //========================================
+                let i;
+                editBtn.addEventListener("click", function(){
+                    let uncheckedListArr = JSON.parse(localStorage.getItem("unchecked"));
+                    if(list.disabled == true){
+                        i = uncheckedListArr.indexOf(list.value)// 原文在陣列裡的索引值
+                        list.disabled = false
+                        list.style.backgroundColor = "#fff"
+                        editBtn.style.backgroundColor = "#A8A6C7"
+                        editBtn.style.color = "#fff"
+                        editBtn.innerText = "儲存"
+                    }else{
+                        // uncheckedListArr[i] = list.value
+                        let value = list.value; //value = 新的內文
+                        uncheckedListArr.splice(i,1,value)  //在陣列中刪除原文並新增修改後的內文
+                        localStorage.setItem("unchecked",JSON.stringify(uncheckedListArr));
+                        list.disabled = true
+                        list.style.backgroundColor = "#E5E4EE"
+                        editBtn.style.backgroundColor = "#f3db41"
+                        editBtn.innerText = "編輯"
+                        updateData();
+                    }
+                    
+
+                    
+                })
+                deleteBtn.addEventListener("click", function(){
+                    let uncheckedListArr = JSON.parse(localStorage.getItem("unchecked"));
+                    let checkedListArr = JSON.parse(localStorage.getItem("checked"));
+                    if(checkbox.checked == true){
+                        let i = checkedListArr.indexOf(list.value)
+                        checkedListArr.splice(i,1)
+                    }else{
+                        let i = uncheckedListArr.indexOf(list.value)
+                        uncheckedListArr.splice(i,1)
+                    }
+                    localStorage.setItem("unchecked",JSON.stringify(uncheckedListArr));
+                    localStorage.setItem("checked",JSON.stringify(checkedListArr));
+                    updateData();
+                })
+                checkbox.addEventListener("click", function(){
+                    let uncheckedListArr = JSON.parse(localStorage.getItem("unchecked"));
+                    let checkedListArr = JSON.parse(localStorage.getItem("checked"));
+                    if(checkbox.checked == true){
+                        if(checkedListArr == null) checkedListArr = [];
+                        let i = uncheckedListArr.indexOf(list.value)
+                        uncheckedListArr.splice(i,1)
+                        checkedListArr.push(list.value)
+                    }else{
+                        if(uncheckedListArr == null) uncheckedListArr = [];
+                        let i = checkedListArr.indexOf(list.value)
+                        checkedListArr.splice(i,1)
+                        uncheckedListArr.push(list.value)
+                    }
+                    localStorage.setItem("unchecked",JSON.stringify(uncheckedListArr));
+                    localStorage.setItem("checked",JSON.stringify(checkedListArr));
+                    updateData();
+                })
+                //========================================
+
+                listItem.appendChild(checkbox)
+                listItem.appendChild(list)
+                listItem.appendChild(editBtn)
+                listItem.appendChild(deleteBtn)
+                listBox.appendChild(listItem)
+            })
+        }
+        function addTodoList(){
+            if(add.value != ""){
+                let localArr;
+                if(localStorage.getItem("unchecked") != null){
+                    localArr = JSON.parse(localStorage.getItem("unchecked"));
+                }else{
+                    localArr = [];
+                }
+                localArr.push(add.value)
+                localStorage.setItem("unchecked",JSON.stringify(localArr))
+                updateData()
+                add.value = "";
+            }
+        }
+
+        //window.onload
+        window.onload = function(){
+            updateData();
+        }
+    </script>
+</body>
+</html>

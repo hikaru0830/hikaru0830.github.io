@@ -1,0 +1,108 @@
+
+body {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+}
+.all {
+    width: 100vw;
+    height: 100vh;
+}
+h1{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 40px 0;
+    text-align: center;
+    color: #5a5787;
+}
+.container {
+    width: 25%;
+    margin: auto;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #a8a6c7;
+    background-color: #E5E4EE;
+    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.text-area {
+    width: 70%;
+}
+.btn-area {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+.editBtn {
+    background-color: #f3db41;
+    color: black;
+}
+
+.deleteBtn {
+    background-color: #e38282;
+    color: #fff;
+}
+
+.btn{
+    text-align: center;
+    width: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.list {
+    box-sizing: border-box;
+    width: 60%;
+    padding: 10px 5px;
+    font-family: 'Noto Serif TC', serif;
+    background-color: #E5E4EE;
+    border-style: none;
+    font-size: 17px;
+}
+.checkbox {
+    margin: 0;
+    width: 5%;
+    vertical-align: middle;
+}
+
+.checkbox:checked + input {
+    text-decoration: line-through;
+}
+.checkbox:checked ~ .editBtn {
+    background-color: #d9d8e6;
+    pointer-events: none;
+}
+
+.add {
+    box-sizing: border-box;
+    padding: 10px 5px;
+    width: 90%;
+    border: 1px solid #ccc;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+}
+
+.addBtn {
+    width: 10%;
+    background-color: #393660;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.addList {
+    padding: 20px 0;
+    display: flex;
+}
