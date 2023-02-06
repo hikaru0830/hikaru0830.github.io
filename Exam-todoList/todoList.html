@@ -83,9 +83,7 @@
                         editBtn.style.color = "#fff"
                         editBtn.innerText = "儲存"
                     }else{
-                        // uncheckedListArr[i] = list.value
-                        let value = list.value; //value = 新的內文
-                        uncheckedListArr.splice(i,1,value)  //在陣列中刪除原文並新增修改後的內文
+                        uncheckedListArr[i] = list.value//更新內文
                         localStorage.setItem("unchecked",JSON.stringify(uncheckedListArr));
                         list.disabled = true
                         list.style.backgroundColor = "#E5E4EE"
