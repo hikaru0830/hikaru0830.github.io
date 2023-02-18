@@ -113,7 +113,9 @@ p {
 }
 .id-box p { margin: auto; }
 
-.intro-container{ width: 100%; }
+.intro-container{
+    width: 100%;
+}
 
 .intro-price {
     margin-bottom: 1rem;
@@ -233,18 +235,50 @@ p {
     margin-bottom: 1.5rem;
 }
 .choose-plan{ margin-bottom: 1.5rem;}
-.choose-plan button{
-    display: block;
+.plan-item{
     text-align: start;
-    --bs-btn-bg: #fff;
+    background-color: #fff;
     width: 100%;
+    padding: 20px;
+    border-radius: 10px;
 }
-.choose-plan button:nth-of-type(n+2){margin-top: 1rem;}
-.choose-plan button p {
+.plan-item:nth-of-type(n+2){margin-top: 1rem;}
+
+.plan-desc {width: calc(75% - 5px);}
+.plan-desc p {
     font-size: 18px;
     font-weight: bold;
-    display: block;
-    margin-top: 10px;
+    margin-bottom: 1rem;
+}
+.plan-desc-text {display: none;}
+.plan-desc-text li{
+    font-size: 15px;
+    color: #5e5a5a;
+    margin-bottom: 10px;
+}
+
+
+.plan-price > span{
+    font-size: 15px;
+    color: rgb(0, 153, 255);
+    display: none;
+}
+.price-and-choose {
+    display: flex;
+    align-items: center;
+}
+.price-and-choose p {
+    width: 60%;
+    margin-right: 10px;
+}
+.price-and-choose span {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.price-and-choose  button {
+    width: 40%;
+    display: none;
 }
 
 .plan-detail-box {
@@ -322,6 +356,8 @@ p {
 
 @media screen and (min-width: 768px){
 
+    .product-intro .intro-container{padding: 20px 20px;}
+
     /* #region ========== 麵包屑 ==========*/
     .bread-box{ 
         width: 85%;
@@ -345,7 +381,7 @@ p {
     
     /* #region ========== 貓頭鷹 ==========*/
     .slider{
-        padding: 0 20px;
+        padding: 02 20px;
     }
     .owl-carousel {
         position: relative;
@@ -358,6 +394,33 @@ p {
         display: block;
     }
     /* #endregion ========== 貓頭鷹 ==========*/
+
+    /* #region ========== 選擇方案 ==========*/
+    .plan-container > button {display: none !important;}
+    .choose-plan-title {display: none;}
+    .plan-item{
+        display: flex;
+        justify-content: space-between;
+    }
+    .plan-desc-text{display: block;}
+    .plan-price {
+        width: calc(25% - 5px);
+        text-align: end
+    }
+    .plan-price button {display: block;}
+    .plan-price > span {display: inline-block;}
+
+    .plan-detail {display: none;}
+    /* #endregion ========== 選擇方案 ==========*/
+
+    /* #region ========== 商品說明 ==========*/
+    .product-detail-nav{
+        display: block;
+        position: sticky;
+        top:40px
+    }
+    /* #endregion ========== 商品說明 ==========*/
+
 }
 
 

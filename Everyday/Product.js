@@ -75,38 +75,41 @@ let isPress = false;
 let cursorX, offsetRight;
 
 //監聽
-window.addEventListener("scroll", (e) => {
-    let windowY = window.scrollY;
-    let planTop = planContainer.offsetTop;
-    if(windowY + 60 >= planTop){
-        planNav.style.top = "0px";
-        header.style.top = "-60px";
-    }else{
-        planNav.style.top = "-60px";
-        header.style.top = "0px";
-    }
-})
 
-//拖拽錨點
-planNav.addEventListener("touchstart",function(e){
-    isPress = true;
-    cursorX = e.touches[0].clientX - ul.offsetLeft
-})
-planNav.addEventListener("touchmove",function(e){
-    if(!isPress) return;
-    offsetRight = (ul.offsetWidth - window.innerWidth + ul.offsetLeft) * -1;
-    if(ul.offsetLeft <= 0 && offsetRight <= 0){
-        let x = e.touches[0].clientX
-        ul.style.left = `${x- cursorX}px`}
-})
-planNav.addEventListener("touchend",function(){
-    isPress = false;
-    if(ul.offsetLeft > 0){
-        ul.style.left = "0px"
-    }else if(offsetRight > 0){
-        ul.style.left = `${ul.offsetLeft + offsetRight}px`
-    }
-})
+if(window.innerWidth < 768){
+    window.addEventListener("scroll", (e) => {
+        let windowY = window.scrollY;
+        let planTop = planContainer.offsetTop;
+        if(windowY + 60 >= planTop){
+            planNav.style.top = "0px";
+            header.style.top = "-60px";
+        }else{
+            planNav.style.top = "-60px";
+            header.style.top = "0px";
+        }
+    })
+    //拖拽錨點
+    planNav.addEventListener("touchstart",function(e){
+        isPress = true;
+        cursorX = e.touches[0].clientX - ul.offsetLeft
+    })
+    planNav.addEventListener("touchmove",function(e){
+        if(!isPress) return;
+        offsetRight = (ul.offsetWidth - window.innerWidth + ul.offsetLeft) * -1;
+        if(ul.offsetLeft <= 0 && offsetRight <= 0){
+            let x = e.touches[0].clientX
+            ul.style.left = `${x- cursorX}px`}
+    })
+    planNav.addEventListener("touchend",function(){
+        isPress = false;
+        if(ul.offsetLeft > 0){
+            ul.style.left = "0px"
+        }else if(offsetRight > 0){
+            ul.style.left = `${ul.offsetLeft + offsetRight}px`
+        }
+    })
+}
+
 
 //Function
 
