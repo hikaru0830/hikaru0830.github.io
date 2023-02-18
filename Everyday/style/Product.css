@@ -102,7 +102,7 @@ p {
 }
 /* #endregion ========== 貓頭鷹 ==========*/
 
-/* #region ========== 商品簡介 ==========*/
+/* #region ========== 商品概要 ==========*/
 
 .bread-and-id {
     width: 100%;
@@ -138,8 +138,9 @@ p {
     box-shadow: 0 -5px 5px -3px rgba(0,0,0,.1);
     z-index: 99;
 }
-
+.favorites-and-service .service span {display: none;}
 .favorites i, .service i {font-size: 25px;}
+.fa-solid.fa-heart {color:rgb(248, 103, 74)}
 
 .buy-right-now{
     width: 50%;
@@ -174,8 +175,8 @@ p {
     padding-top: 1rem;
     border-top: 1px solid #F5F5F5;
 }
-
-/* #endregion ========== 商品簡介 ==========*/
+.choose-plan-box {display: none;}
+/* #endregion ========== 商品概要 ==========*/
 
 /* #region ========== 選擇方案 ==========*/
 .product-plan{
@@ -318,7 +319,7 @@ p {
     padding: 0 20px;
 }
 
-.product-detail-container > div:nth-child(n+2){
+.product-detail-content > div:nth-child(n+2){
     border-top: 1px solid #F5F5F5;
 }
 
@@ -355,7 +356,8 @@ p {
 
 
 @media screen and (min-width: 768px){
-
+    body {padding-bottom: 0;}
+    h1{font-weight: normal;}
     .product-intro .intro-container{padding: 20px 20px;}
 
     /* #region ========== 麵包屑 ==========*/
@@ -395,6 +397,79 @@ p {
     }
     /* #endregion ========== 貓頭鷹 ==========*/
 
+    /* #region ========== 商品概要 ==========*/
+    .intro-container{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+    .intro-main-box {width: calc(70% - 10px);}
+
+    .intro-title-favorites-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .intro-title-box{width: 95%;}
+    .intro-title {margin-bottom: 1rem;}
+    .location {margin-bottom: 1rem;}
+
+
+    .favorites-and-service{
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+        box-shadow: none;
+    }
+    .favorites-and-service .service i {margin-right: 10px;}
+    .favorites-and-service .service span {display: block;}
+    .favorites-and-service .service {
+        width: 300px;
+        padding: 10px;
+        background-color: var(--kk-primary);
+        border-radius: 10px 10px 0 0;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        position: fixed;
+        right:100px;
+        bottom: 0px;
+    }
+    .favorites-and-service button {display: none;}
+    .favorites i {margin-bottom: auto;}
+
+    .intro-price {display: none;}
+    .choose-plan-box {
+        display: block;
+        width: calc(30% - 10px);
+        padding: 20px;
+        border: 1px solid #F5F5F5;
+        height: fit-content;
+    }
+    .choose-plan-box .unitPrice{ margin-bottom: 1rem; }
+    .choose-plan-box .unitPrice span {
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    .choose-plan-box button {
+        width: 100%;
+        background-color: var(--kk-primary);
+    }
+    .intro-notice {
+        padding: 20px 0;
+        border-top: 1px solid #F5F5F5;
+    }
+    .intro-notice ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    .intro-notice ul li:nth-child(n+2) {margin: 0;}
+    
+    /* #endregion ========== 商品概要 ==========*/
+    
     /* #region ========== 選擇方案 ==========*/
     .plan-container > button {display: none !important;}
     .choose-plan-title {display: none;}
@@ -414,11 +489,45 @@ p {
     /* #endregion ========== 選擇方案 ==========*/
 
     /* #region ========== 商品說明 ==========*/
+    .product-detail {
+        display: flex;
+    }
+    .product-detail-container{
+        display: flex;
+    }
+    .product-detail-content{
+        width: 70%;
+        margin-right: auto;
+    }
     .product-detail-nav{
+        width: fit-content;
+        height: fit-content;
         display: block;
         position: sticky;
-        top:40px
+        margin-top: 60px;
+        margin-right: 60px;
+        top: 100px;
+        right: 100px;
+        box-shadow: none;
     }
+    .product-detail-nav ul,
+    .product-detail-nav ul li {
+        display: block;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    .product-detail-nav ul li {
+        border-left: 3px solid transparent;
+    }
+
+    .product-detail-nav ul .active{
+        border-left: 3px solid var(--kk-primary);
+        color: var(--kk-primary);
+    }
+
+    .product-detail-nav ul li a {font-weight:normal;}
+    .detail-anchor li:first-child {display: none;}
+    
     /* #endregion ========== 商品說明 ==========*/
 
 }

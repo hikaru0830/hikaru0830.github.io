@@ -73,9 +73,15 @@ let ul = document.querySelector(".detail-anchor")
 let header = document.querySelector("header")
 let isPress = false;
 let cursorX, offsetRight;
+let detailContent = document.querySelector(".product-detail-content")
+let detailDivs = detailContent.querySelectorAll(".product-detail-content>div")
+let anchor = document.querySelector(".detail-anchor")
+let anchorLis = anchor.querySelectorAll("li")
+let favorites = document.querySelector(".favorites>i")
+let isFavorite = false
 
-//監聽
-
+//===== 監聽 =====
+//商品說明選單
 if(window.innerWidth < 768){
     window.addEventListener("scroll", (e) => {
         let windowY = window.scrollY;
@@ -110,7 +116,23 @@ if(window.innerWidth < 768){
     })
 }
 
+// >1200px 商品說明錨點
+
+//收藏
+favorites.addEventListener("click",addToFavorites)
+
+
 
 //Function
+function addToFavorites(){
+    if(!isFavorite){
+        isFavorite = true;
+        favorites.classList.value = "fa-solid fa-heart"
+    }else{
+        isFavorite = false;
+        favorites.classList.value = "fa-regular fa-heart"
+    }
+}
+
 
 //window.onload
