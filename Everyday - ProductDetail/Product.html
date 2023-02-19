@@ -7,14 +7,15 @@
     <title>【韓國旅遊】連假出遊．首爾春櫻 5+1 日｜不進人蔘＋保證兩晚市區飯店、石村湖櫻花大道、輪中路櫻花隧道、歐式慶熙大學賞櫻、江華LUGE滑車、樂天世界、穿韓服遊古宮、米其林推薦雙美食｜台灣虎航</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="./style/OwlCarouselModule.css">
-    <link rel="stylesheet" href="/OwlCarousel/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="/OwlCarousel/dist/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.theme.default.css">
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/Product.css">
+
+    
 
     <script src="https://kit.fontawesome.com/4d9c8bb258.js" crossorigin="anonymous"></script>
 </head>
@@ -214,7 +215,7 @@
                 </div>
                 <div class="choose-plan-box">
                     <div class="unitPrice"><span>TWD 19,900</span>起</div>
-                    <button type="button" class="btn btn-primary btn-lg">選擇方案</button>
+                    <a href="#plan"><button type="button" class="btn btn-primary btn-lg">選擇方案</button></a>
                 </div>
             </div>
 
@@ -228,62 +229,257 @@
                 <div class="choose-plan">
                     <p class="choose-plan-title">選擇方案</p>
                     <div class="plan-item">
-                        <div class="plan-desc">
-                            <p>單人房</p>
-                            <ul class="plan-desc-text">
-                                <li>此房型僅接受一名成人佔床，每房最多可接受一位兒童不佔床或嬰兒不佔床，超出人數需另外加訂房間</li>
-                                <li>為維護旅客本人及其它團員之旅遊權益，如一位大人帶一位小孩參團者，小孩請選擇為佔床；如一位大人帶一位嬰兒參團者，請需求指定單人房</li>
-                                <li>基於飛航安全標準之限制，考量安全因素及客艙裝載救生衣／氧氣面罩數量須符合，針對不同機型，各航空公司每航班提供之不佔位嬰兒旅客數量不同。請訂購時同時備註於旅客訊息，與客服人員需求嬰兒人數，並提供同行的嬰兒資料
-                                    (嬰兒英文姓名、性別、出生年月日等)，如因未能需求到不佔位嬰兒，於客服人員通知後，旅客可選擇訂單退費。因安全考量凡年滿2歲以上的旅客均須佔位，嬰兒旅客在回程搭機日已滿2歲時，則該航段需佔位並支付成人旅客票價。
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="plan-price">
-                            <div class="price-and-choose">
-                                <p><span>TWD 24,900</span>起</p>
-                                <button type="button" class="btn btn-outline-primary">選擇</button>
+                        <div class="plan-item-show">
+                            <div class="plan-desc">
+                                <p>單人房</p>
+                                <ul class="plan-desc-text">
+                                    <li>此房型僅接受一名成人佔床，每房最多可接受一位兒童不佔床或嬰兒不佔床，超出人數需另外加訂房間</li>
+                                    <li>為維護旅客本人及其它團員之旅遊權益，如一位大人帶一位小孩參團者，小孩請選擇為佔床；如一位大人帶一位嬰兒參團者，請需求指定單人房</li>
+                                    <li>基於飛航安全標準之限制，考量安全因素及客艙裝載救生衣／氧氣面罩數量須符合，針對不同機型，各航空公司每航班提供之不佔位嬰兒旅客數量不同。請訂購時同時備註於旅客訊息，與客服人員需求嬰兒人數，並提供同行的嬰兒資料
+                                        (嬰兒英文姓名、性別、出生年月日等)，如因未能需求到不佔位嬰兒，於客服人員通知後，旅客可選擇訂單退費。因安全考量凡年滿2歲以上的旅客均須佔位，嬰兒旅客在回程搭機日已滿2歲時，則該航段需佔位並支付成人旅客票價。
+                                    </li>
+                                </ul>
                             </div>
-                            <span>最早可預訂日：2023-04-01</span>
+                            <div class="plan-price">
+                                <div class="price-and-choose">
+                                    <p><span>TWD 24,900</span>起</p>
+                                    <button type="button" class="btn btn-outline-primary">選擇</button>
+                                </div>
+                                <span>最早可預訂日：2023-04-01</span>
+                            </div>
+                        </div>
+                        <div class="select-detail">
+                            <div class="plan-item-about">
+                                <p>關於此方案</p>
+                                <div><i class="fa-regular fa-circle-check"></i>3個工作日(不含例假日)內確認</div>
+                            </div>
+                            <div class="plan-item-date">
+                                <div class="date-box">
+                                    <p>選擇日期、選項</p>
+                                    <p>請選擇出發日期</p>
+                                    <div class="calendar">
+                                    </div>
+                                </div>
+                                <div class="qty-box">
+                                    <div class="choose-qty">
+                                        <div class="reset">
+                                            <i class="fa-solid fa-arrow-rotate-left"></i><p>全部重選</p>
+                                        </div>
+                                        <p>選擇數量</p>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>成人佔床</p><span>(12-99歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 24,900/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>兒童不佔床</p><span>(2-11歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 18,500/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>嬰兒不佔床</p><span>(0-1歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 5,000/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="check-price">
+                                        <p>總金額</p>
+                                        <p>TWD 0</p>
+                                    </div>
+                                    <div class="buy">
+                                        <button type="button" class="btn btn-primary">加入購物車</button>
+                                        <button type="button" class="btn btn-kk-primary">立即訂購</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="plan-item">
-                        <div class="plan-desc">
-                            <p>雙人房</p>
-                            <ul class="plan-desc-text">
-                                <li>雙人房僅接受兩名旅客佔床訂房，每房最多可接受一位兒童不佔床或嬰兒不佔床。超出人數需另外加訂房間</li>
-                                <li>床型將依照您的選擇優先需求處理，但只能需求無法保證，須以最後出團確認單為主，訂購時請留意</li>
-                                <li>為維護旅客本人及其它團員之旅遊權益，如一位大人帶一位兒童不佔床或嬰兒不佔床參團者，請需求指定單人房</li>
-                                <li>基於飛航安全標準之限制，考量安全因素及客艙裝載救生衣／氧氣面罩數量須符合，針對不同機型，各航空公司每航班提供之不佔位嬰兒旅客數量不同。請訂購時同時備註於旅客訊息，與客服人員需求嬰兒人數，並提供同行的嬰兒資料
-                                    (嬰兒英文姓名、性別、出生年月日等)，如因未能需求到不佔位嬰兒，於客服人員通知後，旅客可選擇訂單退費。因安全考量凡年滿2歲以上的旅客均須佔位，嬰兒旅客在回程搭機日已滿2歲時，則該航段需佔位並支付成人旅客票價。
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="plan-price">
-                            <div class="price-and-choose">
-                                <p><span>TWD 19,900</span>起</p>
-                                <button type="button" class="btn btn-outline-primary">選擇</button>
+                        <div class="plan-item-show">
+                            <div class="plan-desc">
+                                <p>雙人房</p>
+                                <ul class="plan-desc-text">
+                                    <li>雙人房僅接受兩名旅客佔床訂房，每房最多可接受一位兒童不佔床或嬰兒不佔床。超出人數需另外加訂房間</li>
+                                    <li>床型將依照您的選擇優先需求處理，但只能需求無法保證，須以最後出團確認單為主，訂購時請留意</li>
+                                    <li>為維護旅客本人及其它團員之旅遊權益，如一位大人帶一位兒童不佔床或嬰兒不佔床參團者，請需求指定單人房</li>
+                                    <li>基於飛航安全標準之限制，考量安全因素及客艙裝載救生衣／氧氣面罩數量須符合，針對不同機型，各航空公司每航班提供之不佔位嬰兒旅客數量不同。請訂購時同時備註於旅客訊息，與客服人員需求嬰兒人數，並提供同行的嬰兒資料
+                                        (嬰兒英文姓名、性別、出生年月日等)，如因未能需求到不佔位嬰兒，於客服人員通知後，旅客可選擇訂單退費。因安全考量凡年滿2歲以上的旅客均須佔位，嬰兒旅客在回程搭機日已滿2歲時，則該航段需佔位並支付成人旅客票價。
+                                    </li>
+                                </ul>
                             </div>
-                            <span>最早可預訂日：2023-04-01</span>
+                            <div class="plan-price">
+                                <div class="price-and-choose">
+                                    <p><span>TWD 19,900</span>起</p>
+                                    <button type="button" class="btn btn-outline-primary">選擇</button>
+                                </div>
+                                <span>最早可預訂日：2023-04-01</span>
+                            </div>
+                        </div>
+                        <div class="select-detail">
+                            <div class="plan-item-about">
+                                <p>關於此方案</p>
+                                <div><i class="fa-regular fa-circle-check"></i>3個工作日(不含例假日)內確認</div>
+                            </div>
+                            <div class="plan-item-date">
+                                <div class="date-box">
+                                    <p>選擇日期、選項</p>
+                                    <p>請選擇出發日期</p>
+                                    <div class="calendar">
+                                    </div>
+                                </div>
+                                <div class="qty-box">
+                                    <div class="choose-qty">
+                                        <div class="reset">
+                                            <i class="fa-solid fa-arrow-rotate-left"></i><p>全部重選</p>
+                                        </div>
+                                        <p>選擇數量</p>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>成人佔床</p><span>(12-99歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 24,900/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>兒童不佔床</p><span>(2-11歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 18,500/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>嬰兒不佔床</p><span>(0-1歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 5,000/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="check-price">
+                                        <p>總金額</p>
+                                        <p>TWD 0</p>
+                                    </div>
+                                    <div class="buy">
+                                        <button type="button" class="btn btn-primary">加入購物車</button>
+                                        <button type="button" class="btn btn-kk-primary">立即訂購</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="plan-item">
-                        <div class="plan-desc">
-                            <p>三人房</p>
-                            <ul class="plan-desc-text">
-                                <li>三人房僅接受三名旅客佔床訂房，每房最多可接受一位兒童不佔床或嬰兒不佔床。超出人數需另外加訂房間</li>
-                                <li>三人房床型將安排三張小床或一張大床＋一張小床，恕無法指定，須以最後出團確認單為主，訂購時請留意</li>
-                                <li>為維護旅客本人及其它團員之旅遊權益，如一位大人帶一位兒童不佔床或嬰兒不佔床參團者，請需求指定單人房</li>
-                                <li>基於飛航安全標準之限制，考量安全因素及客艙裝載救生衣／氧氣面罩數量須符合，針對不同機型，各航空公司每航班提供之不佔位嬰兒旅客數量不同。請訂購時同時備註於旅客訊息，與客服人員需求嬰兒人數，並提供同行的嬰兒資料
-                                    (嬰兒英文姓名、性別、出生年月日等)，如因未能需求到不佔位嬰兒，於客服人員通知後，旅客可選擇訂單退費。因安全考量凡年滿2歲以上的旅客均須佔位，嬰兒旅客在回程搭機日已滿2歲時，則該航段需佔位並支付成人旅客票價。
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="plan-price">
-                            <div class="price-and-choose">
-                                <p><span>TWD 19,900</span>起</p>
-                                <button type="button" class="btn btn-outline-primary">選擇</button>
+                        <div class="plan-item-show">
+                            <div class="plan-desc">
+                                <p>三人房</p>
+                                <ul class="plan-desc-text">
+                                    <li>三人房僅接受三名旅客佔床訂房，每房最多可接受一位兒童不佔床或嬰兒不佔床。超出人數需另外加訂房間</li>
+                                    <li>三人房床型將安排三張小床或一張大床＋一張小床，恕無法指定，須以最後出團確認單為主，訂購時請留意</li>
+                                    <li>為維護旅客本人及其它團員之旅遊權益，如一位大人帶一位兒童不佔床或嬰兒不佔床參團者，請需求指定單人房</li>
+                                    <li>基於飛航安全標準之限制，考量安全因素及客艙裝載救生衣／氧氣面罩數量須符合，針對不同機型，各航空公司每航班提供之不佔位嬰兒旅客數量不同。請訂購時同時備註於旅客訊息，與客服人員需求嬰兒人數，並提供同行的嬰兒資料
+                                        (嬰兒英文姓名、性別、出生年月日等)，如因未能需求到不佔位嬰兒，於客服人員通知後，旅客可選擇訂單退費。因安全考量凡年滿2歲以上的旅客均須佔位，嬰兒旅客在回程搭機日已滿2歲時，則該航段需佔位並支付成人旅客票價。
+                                    </li>
+                                </ul>
                             </div>
-                            <span>最早可預訂日：2023-04-01</span>
+                            <div class="plan-price">
+                                <div class="price-and-choose">
+                                    <p><span>TWD 19,900</span>起</p>
+                                    <button type="button" class="btn btn-outline-primary">選擇</button>
+                                </div>
+                                <span>最早可預訂日：2023-04-01</span>
+                            </div>
+                        </div>
+                        <div class="select-detail">
+                            <div class="plan-item-about">
+                                <p>關於此方案</p>
+                                <div><i class="fa-regular fa-circle-check"></i>3個工作日(不含例假日)內確認</div>
+                            </div>
+                            <div class="plan-item-date">
+                                <div class="date-box">
+                                    <p>選擇日期、選項</p>
+                                    <p>請選擇出發日期</p>
+                                    <div class="calendar">
+                                    </div>
+                                </div>
+                                <div class="qty-box">
+                                    <div class="choose-qty">
+                                        <div class="reset">
+                                            <i class="fa-solid fa-arrow-rotate-left"></i><p>全部重選</p>
+                                        </div>
+                                        <p>選擇數量</p>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>成人佔床</p><span>(12-99歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 24,900/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>兒童不佔床</p><span>(2-11歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 18,500/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="qty-item">
+                                            <div class="qty-item-name"><p>嬰兒不佔床</p><span>(0-1歲)</span></div>
+                                            <div class="select-box">
+                                                <span>TWD 5,000/每人</span>
+                                                <div class="select-num">
+                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <span>1</span>
+                                                    <i class="fa-regular fa-square-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="check-price">
+                                        <p>總金額</p>
+                                        <p>TWD 0</p>
+                                    </div>
+                                    <div class="buy">
+                                        <button type="button" class="btn btn-primary">加入購物車</button>
+                                        <button type="button" class="btn btn-kk-primary">立即訂購</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -746,8 +942,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+        <!-- <script src="/node_modules/jquery/dist/jquery.js"></script> -->
+    <!-- <script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script> -->
     <script src="./Owl.js"></script>
     <script src="./Product.js"></script>
 </body>

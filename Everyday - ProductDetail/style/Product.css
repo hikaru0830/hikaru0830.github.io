@@ -307,6 +307,9 @@ p {
     font-size: 15px;
     color: #5e5a5a;
 }
+
+.select-detail {display: none;}
+
 /* #endregion ========== 選擇方案 ==========*/
 
 /* #region ========== 商品說明 ==========*/
@@ -352,6 +355,10 @@ p {
 }
 
 /* #endregion ========== 商品說明 ==========*/
+
+/* #region ========== 月曆 ==========*/
+
+/* #endregion ========== 月曆 ==========*/
 
 
 
@@ -452,9 +459,10 @@ p {
         font-weight: bold;
         margin-right: 5px;
     }
-    .choose-plan-box button {
+    .choose-plan-box button,.choose-plan-box a {
         width: 100%;
         background-color: var(--kk-primary);
+        border-radius: 10px;
     }
     .intro-notice {
         padding: 20px 0;
@@ -473,7 +481,7 @@ p {
     /* #region ========== 選擇方案 ==========*/
     .plan-container > button {display: none !important;}
     .choose-plan-title {display: none;}
-    .plan-item{
+    .plan-item-show{
         display: flex;
         justify-content: space-between;
     }
@@ -486,6 +494,100 @@ p {
     .plan-price > span {display: inline-block;}
 
     .plan-detail {display: none;}
+
+    .select-detail {border-top: 1px solid #F5F5F5;}
+    .plan-item-about{
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        display: flex;
+        margin-bottom: 1rem;
+    }
+    .plan-item-about p {
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 100px;
+    }
+    .plan-item-about div i {margin-right: 5px;}
+
+    .plan-item-date {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .date-box,.qty-box {width: calc(50% - 10px);}
+    .date-box p{ margin-bottom: 1rem; }
+    .date-box p:first-child{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .calendar {
+        width: 100%;
+        height: 500px;
+        border: 1px solid #aaa;
+    }
+
+    .reset {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+    }
+    .choose-qty{
+        width: 100%;
+        height: fit-content;
+        border-bottom: 1px solid #F5F5F5;
+    }
+    .choose-qty > p { margin-bottom: 1rem; }
+    .qty-item{
+        width: 100%;
+    }
+    .qty-item,.qty-item-name, .select-box { display: flex; }
+    .qty-item { 
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    .qty-item-name span{margin: auto;}
+    .qty-item-name p {
+        font-size: 16px;
+        font-weight: bold;
+        margin: auto;
+    }
+    .qty-item-name span {
+        color: #aaa;
+        font-size: 13px;
+    }
+    .qty-box > span {
+        white-space: nowrap;
+        font-size: 15px;
+        margin: auto;
+    }
+    .select-num {
+        display: flex;
+        align-items: center;
+    }
+    .select-num i {
+        font-size: 30px;
+        margin:0 20px;
+    }
+
+    .check-price {
+        margin: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .check-price p:last-child{
+        font-size: 20px;
+        color: var(--kk-primary);
+        font-weight: bold;
+    }
+
+    .buy {text-align: end;}
+    .btn-kk-primary {
+        background-color: var(--kk-primary);
+        color: #fff;
+    }
+
     /* #endregion ========== 選擇方案 ==========*/
 
     /* #region ========== 商品說明 ==========*/

@@ -78,6 +78,7 @@ let detailDivs = detailContent.querySelectorAll(".product-detail-content>div")
 let anchor = document.querySelector(".detail-anchor")
 let anchorLis = anchor.querySelectorAll("li")
 let favorites = document.querySelector(".favorites>i")
+let choosePlanBtn = document.querySelectorAll(".price-and-choose>button")
 let isFavorite = false
 
 //===== 監聽 =====
@@ -120,6 +121,15 @@ if(window.innerWidth < 768){
 
 //收藏
 favorites.addEventListener("click",addToFavorites)
+
+//展開日期查詢
+choosePlanBtn.forEach((btn, index) => {
+    btn.addEventListener("click", function(){
+        let selectDetails = document.querySelectorAll(".select-detail")
+        let displayStatus = selectDetails[index].style.display
+        selectDetails[index].style.display == "block"
+    })
+})
 
 
 
