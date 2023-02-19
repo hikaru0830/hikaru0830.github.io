@@ -11,8 +11,8 @@ body {
 }
 
 div[class*="-container"]{
+    width: 100%;
     padding: 0 20px;
-    max-width: 1200px;
     margin: auto;
 }
 .bread-slider-box{
@@ -361,11 +361,65 @@ p {
 
 /* #endregion ========== 商品說明 ==========*/
 
+/* #region ========== 行程介紹 ==========*/
+.schedule-item {
+    padding: 20px 0;
+
+}
+.schedule-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.schedule-lists{list-style: none;
+}
+.schedule-lists li {
+    position: relative;
+    display: flex;
+    padding: 20px 0;
+}
+.schedule-lists li div { margin-right: 10px;
+}
+.schedule-lists li p {margin-bottom: 10px;}
+.schedule-lists li div img {
+    display: block;
+    width: 100%;
+}
+.schedule-lists li::before{
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: #b5b5b5;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px;
+    margin-top: 3px;
+}
+.schedule-lists li::after{
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: #b5b5b5;
+    position: absolute;
+    left: -23px;
+    margin-top: 3px;
+}
+.schedule-lists li:last-child::after{
+    content: none;
+}
+/* #endregion ========== 行程介紹 ==========*/
+
+
+
+
 
 
 
 
 @media screen and (min-width: 768px){
+    div[class*="-container"]{
+        max-width: 1200px;
+    }
     body {padding-bottom: 0;}
     h1{font-weight: normal;}
     .product-intro .intro-container{padding: 20px 20px;}
@@ -645,7 +699,10 @@ p {
     /* #endregion ========== 商品說明 ==========*/
 
     /* #region ========== 行程介紹 ==========*/
-    .schedule-item {padding: 20px 0;}
+
+    .schedule-item {
+        padding: 20px 0;
+    }
     .schedule-title {
         font-size: 18px;
         font-weight: bold;
@@ -657,9 +714,9 @@ p {
         display: flex;
         padding: 20px 0;
     }
-    .schedule-lists li div {margin-right: 10px;}
+    .schedule-lists li div { margin-right: 10px; }
     .schedule-lists li p {margin-bottom: 10px;}
-    .schedule-lists li img {
+    .schedule-lists li div img {
         display: block;
         width: 100%;
     }
