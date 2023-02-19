@@ -81,7 +81,11 @@ p {
     top: 50%;
     transform: translateY(-50%);
     display: none;
+    background-color: #fff !important;
+    opacity: 0.5;
 }
+.owl-carousel .owl-nav .owl-next{ right: 20px; }
+.owl-carousel .owl-nav .owl-prev{ left:20px; }
 
 .owl-theme .owl-dots {
     position: absolute;
@@ -326,7 +330,8 @@ p {
     border-top: 1px solid #F5F5F5;
 }
 
-.product-detail-instructions,.product-detail-schedule,
+.product-detail-schedule{padding-top: 40px;}
+.product-detail-instructions,
 .product-detail-notice,.product-detail-use,
 .product-detail-place,.product-detail-policy{
     padding: 40px 0;
@@ -356,9 +361,7 @@ p {
 
 /* #endregion ========== 商品說明 ==========*/
 
-/* #region ========== 月曆 ==========*/
 
-/* #endregion ========== 月曆 ==========*/
 
 
 
@@ -390,18 +393,28 @@ p {
     
     /* #region ========== 貓頭鷹 ==========*/
     .slider{
-        padding: 02 20px;
+        padding: 0 20px;
     }
     .owl-carousel {
         position: relative;
     }
     .owl-carousel .item img{
-        height: 55vh;
+        height: 60vh;
     }
     .owl-carousel .owl-nav .owl-next,
     .owl-carousel .owl-nav .owl-prev {
         display: block;
+        color: black;
     }
+    .owl-carousel .owl-nav .owl-next:hover,
+    .owl-carousel .owl-nav .owl-prev:hover{
+        color: black;
+    }
+    .owl-carousel .owl-nav button.owl-next:hover,
+    .owl-carousel .owl-nav button.owl-prev:hover{
+        opacity: 0.8;
+    }
+
     /* #endregion ========== 貓頭鷹 ==========*/
 
     /* #region ========== 商品概要 ==========*/
@@ -525,7 +538,6 @@ p {
     .calendar {
         width: 100%;
         height: 500px;
-        border: 1px solid #aaa;
     }
 
     .reset {
@@ -632,6 +644,48 @@ p {
     
     /* #endregion ========== 商品說明 ==========*/
 
+    /* #region ========== 行程介紹 ==========*/
+    .schedule-item {padding: 20px 0;}
+    .schedule-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .schedule-lists{list-style: none;}
+    .schedule-lists li {
+        position: relative;
+        display: flex;
+        padding: 20px 0;
+    }
+    .schedule-lists li div {margin-right: 10px;}
+    .schedule-lists li p {margin-bottom: 10px;}
+    .schedule-lists li img {
+        display: block;
+        width: 100%;
+    }
+    .schedule-lists li::before{
+        content: "";
+        width: 16px;
+        height: 16px;
+        background-color: #b5b5b5;
+        border-radius: 50%;
+        position: absolute;
+        left: -30px;
+        margin-top: 3px;
+    }
+    .schedule-lists li::after{
+        content: "";
+        width: 2px;
+        height: 100%;
+        background-color: #b5b5b5;
+        position: absolute;
+        left: -23px;
+        margin-top: 3px;
+    }
+    .schedule-lists li:last-child::after{
+        content: none;
+    }
+    /* #endregion ========== 行程介紹 ==========*/
 }
 
 

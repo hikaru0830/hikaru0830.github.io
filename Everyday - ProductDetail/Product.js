@@ -65,8 +65,6 @@ if($(window).width() < 768){
 
 
 //宣告
-
-//DOM
 let planContainer = document.querySelector(".product-plan")
 let planNav = document.querySelector(".product-detail-nav")
 let ul = document.querySelector(".detail-anchor")
@@ -81,9 +79,12 @@ let favorites = document.querySelector(".favorites>i")
 let choosePlanBtn = document.querySelectorAll(".price-and-choose>button")
 let isFavorite = false
 
-//===== 監聽 =====
-//商品說明選單
+//DOM
+//#region ========== 監聽 ==========
+
+//手機版
 if(window.innerWidth < 768){
+    //商品說明錨點(手機版)
     window.addEventListener("scroll", (e) => {
         let windowY = window.scrollY;
         let planTop = planContainer.offsetTop;
@@ -95,7 +96,6 @@ if(window.innerWidth < 768){
             header.style.top = "0px";
         }
     })
-    //拖拽錨點
     planNav.addEventListener("touchstart",function(e){
         isPress = true;
         cursorX = e.touches[0].clientX - ul.offsetLeft
@@ -115,22 +115,36 @@ if(window.innerWidth < 768){
             ul.style.left = `${ul.offsetLeft + offsetRight}px`
         }
     })
+
+
 }
 
-// >1200px 商品說明錨點
+// >1200px 電腦版
+if(window.innerWidth >= 768){
+    //選擇方案展開日期查詢
+    choosePlanBtn.forEach((btn, index) => {
+        btn.addEventListener("click", function(){
+            let selectDetails = document.querySelectorAll(".select-detail")
+            if(btn.dataset.open == "false"){
+                Array.from(choosePlanBtn).map(b => b.dataset.open = "false");
+                Array.from(choosePlanBtn).map(b => b.innerText = "選擇");
+                Array.from(selectDetails).map( s => s.style.display = "none")
+                selectDetails[index].style.display = "block"
+                btn.dataset.open = "true"
+                btn.innerText = "取消選擇"
+            }else{
+                selectDetails[index].style.display = "none"
+                btn.dataset.open = "false"
+                btn.innerText = "選擇"
+            }
+        })
+    })
+}
 
 //收藏
 favorites.addEventListener("click",addToFavorites)
 
-//展開日期查詢
-choosePlanBtn.forEach((btn, index) => {
-    btn.addEventListener("click", function(){
-        let selectDetails = document.querySelectorAll(".select-detail")
-        let displayStatus = selectDetails[index].style.display
-        selectDetails[index].style.display == "block"
-    })
-})
-
+//#endregion ========== 監聽 ==========
 
 
 //Function

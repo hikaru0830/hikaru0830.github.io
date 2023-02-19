@@ -12,10 +12,9 @@
     <link rel="stylesheet" href="./style/OwlCarouselModule.css">
     <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.theme.default.css">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>    <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/Product.css">
-
-    
+    <link rel="stylesheet" href="./style/Calendar.css">    
 
     <script src="https://kit.fontawesome.com/4d9c8bb258.js" crossorigin="anonymous"></script>
 </head>
@@ -149,14 +148,16 @@
                 </div>
                 <div class="slider">
                     <div class="owl-carousel owl-theme">
-                        <div class="item" data-merge="3"><img src="https://picsum.photos/id/142/650/300"></div>
-                        <div class="item" data-merge="3"><img src="https://picsum.photos/id/142/650/300"></div>
-                        <div class="item" data-merge="3"><img src="https://picsum.photos/id/142/650/300"></div>
-                        <div class="item" data-merge="3"><img src="https://picsum.photos/id/142/650/300"></div>
-                        <div class="item" data-merge="3"><img src="https://picsum.photos/id/142/650/300"></div>
-                        <div class="item" data-merge="3"><img src="https://picsum.photos/id/142/650/300"></div>
-                        <div class="item" data-merge="3"><img src="https://picsum.photos/id/142/650/300"></div>
-                        <div class="item" data-merge="3"><img src="https://picsum.photos/id/142/650/300"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test01.jpg"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test02.jpg"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test03.jpg"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test04.jpg"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test05.jpg"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test06.jpg"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test07.jpg"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test08.png"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test09.jpg"></div>
+                        <div class="item" data-merge="3"><img src="./img/test/test10.jpg"></div>
                     </div>
                 </div>
             </div>
@@ -243,7 +244,7 @@
                             <div class="plan-price">
                                 <div class="price-and-choose">
                                     <p><span>TWD 24,900</span>起</p>
-                                    <button type="button" class="btn btn-outline-primary">選擇</button>
+                                    <button type="button" class="btn btn-outline-primary" data-open="false">選擇</button>
                                 </div>
                                 <span>最早可預訂日：2023-04-01</span>
                             </div>
@@ -258,6 +259,79 @@
                                     <p>選擇日期、選項</p>
                                     <p>請選擇出發日期</p>
                                     <div class="calendar">
+                                        <div id="calendar">
+                                            <div class="bar">
+                                                <i class="fa-solid fa-chevron-left"></i>
+                                                <p>2023年2月</p>
+                                                <i class="fa-solid fa-chevron-right"></i>
+                                            </div>
+                                            <div class="day-grid">
+                                                <div class="week-day">
+                                                    <div><p>日</p></div>
+                                                    <div><p>一</p></div>
+                                                    <div><p>二</p></div>
+                                                    <div><p>三</p></div>
+                                                    <div><p>四</p></div>
+                                                    <div><p>五</p></div>
+                                                    <div><p>六</p></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    
                                     </div>
                                 </div>
                                 <div class="qty-box">
@@ -271,9 +345,9 @@
                                             <div class="select-box">
                                                 <span>TWD 24,900/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -282,9 +356,9 @@
                                             <div class="select-box">
                                                 <span>TWD 18,500/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -293,9 +367,9 @@
                                             <div class="select-box">
                                                 <span>TWD 5,000/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -328,7 +402,7 @@
                             <div class="plan-price">
                                 <div class="price-and-choose">
                                     <p><span>TWD 19,900</span>起</p>
-                                    <button type="button" class="btn btn-outline-primary">選擇</button>
+                                    <button type="button" class="btn btn-outline-primary" data-open="false">選擇</button>
                                 </div>
                                 <span>最早可預訂日：2023-04-01</span>
                             </div>
@@ -343,6 +417,79 @@
                                     <p>選擇日期、選項</p>
                                     <p>請選擇出發日期</p>
                                     <div class="calendar">
+                                        <div id="calendar">
+                                            <div class="bar">
+                                                <i class="fa-solid fa-chevron-left"></i>
+                                                <p>2023年2月</p>
+                                                <i class="fa-solid fa-chevron-right"></i>
+                                            </div>
+                                            <div class="day-grid">
+                                                <div class="week-day">
+                                                    <div><p>日</p></div>
+                                                    <div><p>一</p></div>
+                                                    <div><p>二</p></div>
+                                                    <div><p>三</p></div>
+                                                    <div><p>四</p></div>
+                                                    <div><p>五</p></div>
+                                                    <div><p>六</p></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    
                                     </div>
                                 </div>
                                 <div class="qty-box">
@@ -356,9 +503,9 @@
                                             <div class="select-box">
                                                 <span>TWD 24,900/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -367,9 +514,9 @@
                                             <div class="select-box">
                                                 <span>TWD 18,500/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -378,9 +525,9 @@
                                             <div class="select-box">
                                                 <span>TWD 5,000/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -413,7 +560,7 @@
                             <div class="plan-price">
                                 <div class="price-and-choose">
                                     <p><span>TWD 19,900</span>起</p>
-                                    <button type="button" class="btn btn-outline-primary">選擇</button>
+                                    <button type="button" class="btn btn-outline-primary" data-open="false">選擇</button>
                                 </div>
                                 <span>最早可預訂日：2023-04-01</span>
                             </div>
@@ -428,6 +575,79 @@
                                     <p>選擇日期、選項</p>
                                     <p>請選擇出發日期</p>
                                     <div class="calendar">
+                                        <div id="calendar">
+                                            <div class="bar">
+                                                <i class="fa-solid fa-chevron-left"></i>
+                                                <p>2023年2月</p>
+                                                <i class="fa-solid fa-chevron-right"></i>
+                                            </div>
+                                            <div class="day-grid">
+                                                <div class="week-day">
+                                                    <div><p>日</p></div>
+                                                    <div><p>一</p></div>
+                                                    <div><p>二</p></div>
+                                                    <div><p>三</p></div>
+                                                    <div><p>四</p></div>
+                                                    <div><p>五</p></div>
+                                                    <div><p>六</p></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>
+                                                <div class="week-row">
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                    <div class="day"></div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    
                                     </div>
                                 </div>
                                 <div class="qty-box">
@@ -441,9 +661,9 @@
                                             <div class="select-box">
                                                 <span>TWD 24,900/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -452,9 +672,9 @@
                                             <div class="select-box">
                                                 <span>TWD 18,500/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -463,9 +683,9 @@
                                             <div class="select-box">
                                                 <span>TWD 5,000/每人</span>
                                                 <div class="select-num">
-                                                    <i class="fa-regular fa-square-minus"></i>
+                                                    <i class="fa-solid fa-minus"></i>
                                                     <span>1</span>
-                                                    <i class="fa-regular fa-square-plus"></i>
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -607,7 +827,48 @@
                     <div class="product-detail-schedule" id="schedule">
                         <h2>行程介紹</h2>
                         <p><i class="fa-regular fa-clock"></i>行程時間：6天</p>
-                        <div class="text-box"></div>
+                        <div class="text-box">
+                            <div class="schedule-item">
+                                <p class="schedule-title">第1天</p>
+                                <ul class="schedule-lists">
+                                    <li><div>19:00</div><div><p>抵達桃園國際機場第一航廈「台灣虎航團體櫃檯前」集合報到</p></div></li>
+                                    <li><div>21:55</div>
+                                        <div>
+                                            <p>搭乘台灣虎航 IT600 航班出發前往韓國（包含機上簡餐）Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rem officiis suscipit ipsam. Voluptate quaerat facilis ut repellendus, id est consequatur omnis facere totam veritatis mollitia cum beatae fugiat alias.</p>
+                                            <img src="./img/test/test13.webp">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="schedule-item">
+                                <p class="schedule-title">第2天</p>
+                                <ul class="schedule-lists">
+                                    <li><div>01:30</div>
+                                        <div>
+                                            <p>抵達韓國仁川國際機場，辦理入境手續後前往入住飯店休息（仁川 SOPRA 或 仁川 Seamoon 或 仁川 Riviera Verium 或 仁川 PREMIERS 或 仁川 GRAND SUITE 或 月尾島 RUBY 或 水原 KOREA TOURIST HOTEL 或 同級）</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <p>飯店內享用早餐</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <p>IG 網美打卡景點．朝陽紡織文青咖啡館（含每人一杯咖啡</p>
+                                            <img src="./img/test/test11.webp" alt="">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <p>漫步故事小路～龍興宮＋韓屋聖堂＋高麗宮址</p>
+                                            <img src="./img/test/test12.webp" alt="">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="product-detail-notice" id="notice">
                         <h2>購買須知</h2>
@@ -946,6 +1207,7 @@
     <!-- <script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script> -->
     <script src="./Owl.js"></script>
     <script src="./Product.js"></script>
+    <script src="./Calendar.js"></script>
 </body>
 
 </html>
