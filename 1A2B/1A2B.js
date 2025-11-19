@@ -6,7 +6,7 @@ window.onload = function(){
     start = document.querySelector(".start");
     reset = document.querySelector(".reset");
     submit = document.querySelector(".submit");
-    input = document.querySelector("input");
+    input = document.querySelector("#guess");
     recordBox = document.querySelector(".record-box");
     again = document.querySelector(".again");
     full = document.querySelector(".full");
@@ -24,6 +24,7 @@ window.onload = function(){
 }
 
 function startGame(){
+    debugger
     input.disabled = false;
     let block = document.querySelectorAll(".disabled");
     block.forEach(d => {
