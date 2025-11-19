@@ -24,7 +24,6 @@ window.onload = function(){
 }
 
 function startGame(){
-    debugger
     input.disabled = false;
     let block = document.querySelectorAll(".disabled");
     block.forEach(d => {
